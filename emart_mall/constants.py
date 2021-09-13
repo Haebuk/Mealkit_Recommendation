@@ -1,0 +1,1 @@
+BASE_URL = "http://emart.ssg.com/disp/category.ssg?dispCtgId=6000097509"
