@@ -6,7 +6,7 @@ try:
         product_list = kurly.get_product_list()
         print(f'product list length: {len(product_list)}')
         for iter in range(len(product_list)):
-            print('------' + str(iter) + '------')
+            print('------' + str(iter+1) + '------')
             kurly.click_product(iter)    
             kurly.refresh()
             product_url = kurly.get_product_url()
