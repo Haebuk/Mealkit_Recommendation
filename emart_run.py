@@ -10,11 +10,17 @@ try:
             emart.land_first_page(page)
             product_list = emart.get_product_list()
             print(f'product list length: {len(product_list)}')
+            product_image_urls = emart.get_product_image_url()
             for iter in range(len(product_list)):
                 print(f'----- page: {page}, iter: {iter+1} -----')
                 emart.click_product(iter)    
                 product_url = emart.get_product_url()
+
+                image_url = product_image_urls[iter]
+                print(f'product image url: {image_url}')
+                
                 product_name = emart.get_product_name()
+                product_price = emart.get_product_price()
                 emart.land_first_page(page)
 
                 if iter % 5 == 0: # 새로고침을 자주할 때 나오는 에러 창 방지

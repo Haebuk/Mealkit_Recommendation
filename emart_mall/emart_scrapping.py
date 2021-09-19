@@ -1,5 +1,3 @@
-# 이마트몰 스크래핑 코드 작성
-
 import time
 import emart_mall.constants as const
 from selenium import webdriver
@@ -45,3 +43,18 @@ class Emart_Scrapping(webdriver.Chrome):
 
     def move_backward(self): # 뒤로가기를 실행하는 함수
         self.execute_script("window.history.go(-1)")
+
+    def get_product_image_url(self): # 상품 이미지 url을 가져오는 함수
+        product_image_urls_css = self.find_elements_by_css_selector("#ty_thmb_view > ul > li > div.cunit_prod > div.thmb > a > img.i1")
+        product_image_urls = []
+        for label in product_image_urls_css:
+            product_image_urls.append(label.get_attribute('src'))
+        
+        return product_image_urls
+
+    def get_product_price(self): # 상품의 가격을 가져오는 함수
+        product_price = self.find_element_by_class_name(
+            'cdtl_info_wrap'
+        ).find_element_by_class_name('ssg_price').text.split('\n')
+        print(f'product price: {product_price[0]}')
+        return product_price
