@@ -20,16 +20,19 @@ try:
             product_list = emart.get_product_list() # 상품 리스트 수집
             print(f'product list length: {len(product_list)}') # 상품 리스트 길이 출력
             for iter in range(len(product_list)): # 상품 리스트 수만큼 반복
-                print(f'----- page: {page}, iter: {iter+1} -----') # 페이지, 상품 번호 출력
-                product_url = emart.access_product(iter)
-                product_name = emart.get_product_name() # 상품 이름 수집
-                is_sold_out = emart.get_soldout_info()
-                for i in tqdm(range(randint(1, 120))) :
-                    time.sleep(1)
-                emart.land_first_page(page) # 첫 페이지로 이동       
+                try:
+                    print(f'----- page: {page}, iter: {iter+1} -----') # 페이지, 상품 번호 출력
+                    product_url = emart.access_product(iter)
+                    product_name = emart.get_product_name() # 상품 이름 수집
+                    is_sold_out = emart.get_soldout_info()
+                    for i in tqdm(range(120)): # 2분간 정지
+                        time.sleep(1)
+                    emart.land_first_page(page) # 첫 페이지로 이동
+                except:
+                    emart.land_first_page(page) # 첫 페이지로 이동
 
 except Exception as e:
-    """`
+    """
     처음 실행시 셀레니움 경로 관련 오류가 발생할 수 있는데,
     본인의 os에 맞게 출력물에 나타난 내용을 입력하면 해결
     """
