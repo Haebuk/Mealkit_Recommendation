@@ -41,5 +41,17 @@ class Kurly_Scrapping(webdriver.Chrome):
         print(f'product name: {product_name}')
         return product_name
 
+    def get_soldout_info(self): # 품절 여부 판단하는 함수
+        try:
+            product_cart_button = self.find_element_by_id(
+                'cartPut'
+            ).find_element_by_class_name('btn btn_alarm on').text
+            print('품절 상품')
+            return True
+        except:
+            print('판매중인 상품')
+            return False
+
+
     def move_backward(self): # 뒤로가기를 실행하는 함수
         self.execute_script("window.history.go(-1)")

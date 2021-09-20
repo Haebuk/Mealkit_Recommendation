@@ -15,9 +15,10 @@ try:
             kurly.refresh()
             product_url = kurly.get_product_url()
             product_name = kurly.get_product_name()
+            is_sold_out = kurly.get_soldout_info()
             kurly.land_first_page()
 
-            if iter == 5:
+            if iter == 2:
                 break
 
 except Exception as e:
