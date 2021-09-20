@@ -1,6 +1,5 @@
 # 마켓컬리 스크래핑 코드 작성
 
-import os
 import market_kurly.constants as const
 from selenium import webdriver
 from selenium.webdriver.remote.webdriver import WebElement
