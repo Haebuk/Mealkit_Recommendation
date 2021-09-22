@@ -15,6 +15,8 @@ try:
             kurly.refresh()
             product_url = kurly.get_product_url()
             product_name = kurly.get_product_name()
+            product_brand = kurly.get_brand_name()
+            product_information = kurly.get_product_information()
             kurly.land_first_page()
 
             if iter == 5:

@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.remote.webdriver import WebElement
 
 class Kurly_Scrapping(webdriver.Chrome):
-    def __init__(self, driver_path = 'C:/chromedriver.exe', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
+    def __init__(self, driver_path = 'C:/Program Files (x86)/Google./chromedriver', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
         self.teardown = teardown
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -40,6 +40,20 @@ class Kurly_Scrapping(webdriver.Chrome):
         ).find_element_by_class_name('name').text
         print(f'product name: {product_name}')
         return product_name
+
+    def get_brand_name(self): # 상품의 브랜드를 가져오는 함수
+        product_name = self.find_element_by_class_name(
+            'goods_name'
+        ).find_element_by_class_name('name').text
+        idx = product_name.find(']') 
+        brand = 'None' if idx==-1 else product_name[1:idx]
+        print(f'product brand: {brand}')
+        return brand
+    
+    def get_product_information(self): # 제품 정보를 가져오는 함수
+        information = self.find_element_by_class_name('words').text
+        print(f'product information: {information}')
+        return information
 
     def move_backward(self): # 뒤로가기를 실행하는 함수
         self.execute_script("window.history.go(-1)")

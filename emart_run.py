@@ -22,6 +22,8 @@ try:
                 emart.click_product(iter) # 상품 클릭
                 product_url = emart.get_product_url() # 상품 url 수집
                 product_name = emart.get_product_name() # 상품 이름 수집
+                product_brand = emart.get_product_brand() # 상품 브랜드 수집
+                product_information = emart.get_product_information() # 상품 정보 수집
                 emart.land_first_page(page) # 첫 페이지로 이동
                 time.sleep(2) # 2초 일시정지
 
