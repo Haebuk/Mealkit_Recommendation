@@ -2,6 +2,7 @@
 
 import time
 import emart_mall.constants as const
+from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.remote.webdriver import WebElement
 
@@ -41,6 +42,14 @@ class Emart_Scrapping(webdriver.Chrome):
         ).find_element_by_class_name('cdtl_info_tit').text.split('\n')
         print(f'product name: {product_name[0]}')
         return product_name
+
+    def get_product_information(self): # 상품 정보를 가져오는 함수
+        self.switch_to.frame("_ifr_html") # iframe 
+        product_information = self.find_element_by_class_name(
+            'tmpl_sub_tit'
+        ).text
+        print(f'product information: {product_information}')
+        return product_information
 
     def get_soldout_info(self): # 품절 여부 판단하는 함수
         if self.find_element_by_class_name(
