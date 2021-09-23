@@ -1,6 +1,7 @@
 import json
+import os
 class DataToJson:
-    def __init__(self, filename: str):
+    def __init__(self, filename: os.PathLike):
         self.filename = filename
 
     def load_json(self):
@@ -10,13 +11,13 @@ class DataToJson:
         return: json 파일의 데이터
         """
         try: # json 로드 시도
-            with open(self.filename, 'r', encoding='utf-8') as f:
+            with open(os.path.join(os.getcwd(), self.filename), 'r', encoding='utf-8') as f:
                 data = json.load(f)
         except: # json 파일이 존재하지 않는 경우 빈 리스트를 json 파일에 추가해서 저장
             empty_list = [] # 빈 리스트 생성
-            with open(self.filename, 'w', encoding='utf-8') as f: # 빈 리스트 저장
+            with open(os.path.join(os.getcwd(), self.filename), 'w') as f: # 빈 리스트 저장
                 json.dump(empty_list, f, ensure_ascii=False, indent=4)
-            with open(self.filename, 'r', encoding='utf-8') as f: # 빈 리스트를 저장한 파일을 로드
+            with open(os.path.join(os.getcwd(), self.filename), 'r', encoding='utf-8') as f: # 빈 리스트를 저장한 파일을 로드
                 data = json.load(f)
         return data
 
