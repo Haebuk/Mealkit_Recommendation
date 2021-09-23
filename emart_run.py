@@ -1,4 +1,6 @@
 import time
+from tqdm import tqdm
+from random import randint
 from emart_mall.emart_scrapping import Emart_Scrapping
 """
 이마트몰 크롤링 실행 파일
@@ -19,12 +21,11 @@ try:
             print(f'product list length: {len(product_list)}') # 상품 리스트 길이 출력
             for iter in range(len(product_list)): # 상품 리스트 수만큼 반복
                 print(f'----- page: {page}, iter: {iter+1} -----') # 페이지, 상품 번호 출력
-                emart.click_product(iter) # 상품 클릭
-                product_url = emart.get_product_url() # 상품 url 수집
+                product_url = emart.access_product(iter)
                 product_name = emart.get_product_name() # 상품 이름 수집
+                is_sold_out = emart.get_soldout_info()
+                product_info = emart.get_product_information() # 상품 정보 수집
                 emart.land_first_page(page) # 첫 페이지로 이동
-                time.sleep(2) # 2초 일시정지
-
 except Exception as e:
     """
     처음 실행시 셀레니움 경로 관련 오류가 발생할 수 있는데,
