@@ -16,7 +16,6 @@ try:
         input1 = int(input("시작할 페이지: ")) # 시작할 페이지
         input2 = int(input("종료할 페이지: ")) # 종료할 페이지
         for page in range(input1, input2+1):
-
             emart.land_first_page(page)
             product_list = emart.get_product_list()
             print(f'product list length: {len(product_list)}')
@@ -27,6 +26,7 @@ try:
                 product_url = emart.access_product(iter)
                 print(f'product image url: {image_url}')
                 product_name = emart.get_product_name()
+                product_brand = emart.get_product_brand() # 상품 브랜드 수집
                 product_price = emart.get_product_price()
                 is_sold_out = emart.get_soldout_info()
                 product_info = emart.get_product_information() # 상품 정보 수집
