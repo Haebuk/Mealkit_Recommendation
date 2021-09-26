@@ -1,8 +1,6 @@
 from market_kurly.kurly_scrapping import Kurly_Scrapping
 from utils.data_to_json import DataToJson
 from utils.refine_information import refine_information
-filename = '마켓컬리.json'
-data = DataToJson(filename)
 """
 마켓컬리 크롤링 파일
 &page 쿼리 스트링이 없기 때문에 하단의 페이지 버튼을 클릭하는 방법으로 자동화 해야함.
@@ -17,6 +15,7 @@ try:
         print(f'product list length: {len(product_list)}')  # 상품 리스트 길이 출력
         product_image_urls = kurly.get_product_image_url()
         for iter in range(len(product_list)):               # iter: 0 ~ 리스트 길이 - 1         // product_list : 99개  -> 1페이지만 나오는 듯
+            json_data = data.load_json()
             print('------' + str(iter+1) + '------')        # ------ 1 ------
             kurly.click_product(iter)                       # iter에 해당하는 상품 클릭 0~98
 
@@ -36,7 +35,7 @@ try:
                 category='',
                 brand=product_brand,
                 price=product_price,
-                img_url=product_img_url,
+                img_url=image_url,
                 product_url=product_url,
                 is_sold_out=is_sold_out,
                 detail=product_information
