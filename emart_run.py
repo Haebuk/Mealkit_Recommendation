@@ -19,12 +19,12 @@ try:
         review_data = DataToJson(review_filename)
 
         for page in range(input1, input2+1):
-            json_data = data.load_json()
             json_review = review_data.load_json()
             emart.land_first_page(page)
             product_category = emart.get_product_category()
             filename = f'이마트몰_{product_category}_{input1}_{input2}.json'
             data = DataToJson(filename)
+            json_data = data.load_json()
             product_list = emart.get_product_list()
             print(f'product list length: {len(product_list)}')
             product_image_urls = emart.get_product_image_url()
