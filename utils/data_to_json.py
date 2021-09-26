@@ -2,7 +2,7 @@ import json
 import os
 class DataToJson:
     def __init__(self, filename: os.PathLike):
-        self.filename = filename
+        self.filename = './data/' + filename
 
     def load_json(self):
         """
