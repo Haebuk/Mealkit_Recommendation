@@ -70,12 +70,15 @@ class Emart_Scrapping(webdriver.Chrome):
             return True
 
     def get_product_information(self): # 상품 정보를 가져오는 함수
-        self.switch_to.frame("_ifr_html") # iframe 
-        product_information = self.find_element_by_class_name(
-            'tmpl_sub_tit'
-        ).text
-        print(f'product information: {product_information}')
-        return product_information
+        try:
+            self.switch_to.frame("_ifr_html") # iframe 
+            product_information = self.find_element_by_class_name(
+                'tmpl_sub_tit'
+            ).text
+            print(f'product information: {product_information}')
+            return product_information
+        except:
+            return ''
 
     def get_soldout_info(self): # 품절 여부 판단하는 함수
         if self.find_element_by_class_name(
@@ -135,8 +138,7 @@ class Emart_Scrapping(webdriver.Chrome):
                 button_box.find_element_by_link_text(str(page)).click()
                 time.sleep(1)
         except Exception as e:
-            print(e)
-            print('리뷰가 부족합니다.')
+            print(f'리뷰가 부족합니다. 리뷰 개수: {len(reviews)}')
             return reviews, stars, users
         return reviews, stars, users
 
