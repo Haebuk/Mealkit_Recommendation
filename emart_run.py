@@ -15,15 +15,15 @@ try:
         
         input1 = int(input("시작할 페이지: ")) # 시작할 페이지
         input2 = int(input("종료할 페이지: ")) # 종료할 페이지
-        review_filename = f'이마트몰리뷰_{input1}_{input2}.json'
-        review_data = DataToJson(review_filename)
 
         for page in range(input1, input2+1):
-            json_review = review_data.load_json()
             emart.land_first_page(page)
             product_category = emart.get_product_category()
             filename = f'이마트몰_{product_category}_{input1}_{input2}.json'
+            review_filename = f'이마트몰리뷰_{product_category}_{input1}_{input2}.json'
             data = DataToJson(filename)
+            review_data = DataToJson(review_filename)
+            json_review = review_data.load_json()
             json_data = data.load_json()
             product_list = emart.get_product_list()
             print(f'product list length: {len(product_list)}')
@@ -64,6 +64,13 @@ try:
                     data.save_json(json_data)
                     review_data.save_json(json_review)
                     end = time.time()
+                    duration = end - start
+                    if duration >= 120:
+                        print(f'120초 경과. 다음 페이지로 이동합니다.')
+                    else:
+                        print(f'{duration}초 경과. {120 - duration} 동안 대기합니다.')
+                        time.sleep(120 - duration)
+
                     emart.land_first_page(page)
                 except Exception as e:
                     print(e)
