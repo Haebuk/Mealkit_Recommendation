@@ -45,3 +45,5 @@ class DataToJson:
             data = json.load(f)
         print(f'{self.filename} 파일의 길이: {len(data)}')
 
+if __name__ == '__main__':
+    print(DataToJson('이마트몰_웨스턴_2_2.json').check_json_file_length())
