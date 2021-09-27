@@ -147,4 +147,6 @@ class Emart_Scrapping(webdriver.Chrome):
             'area_disp_ctg_title'
             ).find_element_by_tag_name('a').text.strip()
         print(f'product category: {product_category}')
+        if '일식/아시안' == product_category:
+            return '일식_아시안'
         return product_category
