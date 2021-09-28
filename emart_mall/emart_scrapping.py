@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.remote.webdriver import WebElement
 
 class Emart_Scrapping(webdriver.Chrome):
-    def __init__(self, driver_path = 'C:/Program Files (x86)/Google./chromedriver', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
+    def __init__(self, driver_path = '/Users/chromedriver', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
         self.teardown = teardown
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -97,5 +97,6 @@ class Emart_Scrapping(webdriver.Chrome):
         product_price = self.find_element_by_class_name(
             'cdtl_info_wrap'
         ).find_element_by_class_name('ssg_price').text.split('\n')
+        product_price = product_price.replace(',', '')
         print(f'product price: {product_price[0]}')
-        return product_price
+        return int(product_price)
