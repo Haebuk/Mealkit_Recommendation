@@ -100,3 +100,4 @@ class Emart_Scrapping(webdriver.Chrome):
         product_price = product_price.replace(',', '')
         print(f'product price: {product_price[0]}')
         return int(product_price)
+

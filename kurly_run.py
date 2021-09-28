@@ -9,7 +9,6 @@ data = DataToJson(filename)
 마켓컬리 크롤링 파일
 &page 쿼리 스트링이 없기 때문에 하단의 페이지 버튼을 클릭하는 방법으로 자동화 해야함.
 """
-
 try:
     with Kurly_Scrapping() as kurly:
         for page_idx in range(3,4):

@@ -43,6 +43,18 @@ class Kurly_Scrapping(webdriver.Chrome):
         return product_image_url
 
 
+    def land_next_page(self): # -------------------------------------------------------------------->>>> 다음 페이지 클릭
+        self.find_element_by_class_name('layout-pagination-button layout-pagination-next-page').click()
+
+    def get_product_image_url(self): # 상품 이미지 url을 가져오는 함수
+        product_image_urls_css = self.find_elements_by_css_selector("#goodsList > div.list_goods > div > ul > li > div > div > a > img")
+        product_image_urls = []
+        for label in product_image_urls_css:
+            product_image_urls.append(label.get_attribute('src'))
+        
+        return product_image_urls
+
+
     def get_product_list(self): # 상품 리스트를 가져오는 함수, 최대 99개
         goods_element = self.find_element_by_class_name('inner_listgoods')
         product_list = goods_element.find_elements_by_tag_name('li')
@@ -100,3 +112,4 @@ class Kurly_Scrapping(webdriver.Chrome):
         product_price = product_price.strip('원').replace(',','')                #int(product_price.strip('원').strip(',')
         print(f'product price: {product_price}')
         return int(product_price)
+
