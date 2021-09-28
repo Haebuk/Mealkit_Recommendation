@@ -8,6 +8,7 @@ from utils.refine_information import RefineInformation
 실행 후 시작할 페이지와 종료할 페이지를 입력하여 실행
 """
 
+
 try:
     with Emart_Scrapping() as emart:
         
@@ -82,10 +83,7 @@ try:
 
 
 except Exception as e:
-    """
-    처음 실행시 셀레니움 경로 관련 오류가 발생할 수 있는데,
-    본인의 os에 맞게 출력물에 나타난 내용을 입력하면 해결
-    """
+    
     if 'in PATH' in str(e):
         print(
             'You are trying to run the bot from command line \n'
