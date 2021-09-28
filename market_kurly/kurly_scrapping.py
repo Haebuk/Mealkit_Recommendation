@@ -68,6 +68,10 @@ class Kurly_Scrapping(webdriver.Chrome):
         information = self.find_element_by_class_name('words').text
         print(f'product information: {information}')
         return information
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3715022a066d0665117fdad6ca5193dec6f1892d
     def get_soldout_info(self): # 품절 여부 판단하는 함수
         try:
             product_cart_button = self.find_element_by_id(

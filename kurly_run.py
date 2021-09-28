@@ -28,7 +28,10 @@ try:
             product_information = kurly.get_product_information()
             product_price = kurly.get_product_price()
             is_sold_out = kurly.get_soldout_info()
+<<<<<<< HEAD
             product_review = kurly.get_product_review()
+=======
+>>>>>>> 3715022a066d0665117fdad6ca5193dec6f1892d
             kurly.land_first_page()
             
             product_dict = refine_information(
