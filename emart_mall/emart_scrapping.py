@@ -1,8 +1,6 @@
 import time
 import emart_mall.constants as const
-from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.remote.webdriver import WebElement
 
 class Emart_Scrapping(webdriver.Chrome):
     def __init__(self, driver_path = 'C:/chromedriver.exe', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
