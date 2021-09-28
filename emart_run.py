@@ -33,6 +33,7 @@ try:
             for iter in range(start, len(product_list)):
                 start = time.time()
                 print(f'----- page: {page}, iter: {iter+1} -----')
+
                 try:
                     image_url = product_image_urls[iter]
                     product_url = emart.access_product(iter)
@@ -78,7 +79,6 @@ try:
                     print(e)
                     emart.land_first_page(page)
                     continue
-
 
 
 except Exception as e:
