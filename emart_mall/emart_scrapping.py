@@ -4,6 +4,10 @@ from selenium import webdriver
 
 class Emart_Scrapping(webdriver.Chrome):
     def __init__(self, driver_path = 'C:/chromedriver.exe', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a12a6f9f1ac0126588b4986e8b2b40befb9ed5c
         self.teardown = teardown
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
