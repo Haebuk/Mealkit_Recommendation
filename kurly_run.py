@@ -2,13 +2,15 @@ from market_kurly.kurly_scrapping import Kurly_Scrapping
 from utils.data_to_json import DataToJson
 from utils.refine_information import refine_information
 import time
-
+"""
+마켓컬리 크롤링 파일
+&page 쿼리 스트링이 없기 때문에 하단의 페이지 버튼을 클릭하는 방법으로 자동화 해야함.
+"""
 filename = '마켓컬리.json'
 data = DataToJson(filename)
-
 try:
     with Kurly_Scrapping() as kurly:
-        for page_idx in range(3,4):
+        for page_idx in range(4):
             kurly.land_first_page()                             # 밀키트.메인요리 페이지 오픈
             time.sleep(5)
             kurly.land_next_page(page_idx)
@@ -38,6 +40,7 @@ try:
                 product_information = kurly.get_product_information()
                 product_price = kurly.get_product_price()
                 is_sold_out = kurly.get_soldout_info()
+                user, review = kurly.get_product_review()
                 kurly.land_first_page()
                 time.sleep(3)
                 

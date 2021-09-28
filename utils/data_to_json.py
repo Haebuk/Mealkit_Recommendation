@@ -2,7 +2,7 @@ import json
 import os
 class DataToJson:
     def __init__(self, filename: os.PathLike):
-        self.filename = filename
+        self.filename = './data/' + filename
 
     def load_json(self):
         """
@@ -44,4 +44,7 @@ class DataToJson:
         with open(self.filename, 'r', encoding='utf-8') as f:
             data = json.load(f)
         print(f'{self.filename} 파일의 길이: {len(data)}')
+
+if __name__ == '__main__':
+    DataToJson('이마트몰_웨스턴_2_5.json').check_json_file_length()
 
