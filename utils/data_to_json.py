@@ -54,14 +54,19 @@ class DataToJson:
         print(f"{file1}의 길이: {len(list1)}")
         print(f"{file2}의 길이: {len(list2)}")
         run = input("합치시겠습니까? (y/n)")
-        if run:
+        if run == 'y' or run == 'Y':
             list1.extend(list2)
             print(f"합쳤습니다. {file1}의 길이: {len(list1)}")
             save = input("저장하시겠습니까? (y/n)")
+            if save == 'y' or save == 'Y':
+                DataToJson(file1).save_json(list1)
+                return True
+            else:
+                print("종료되었습니다.")
+                return False
         else:
             print("종료되었습니다.")
-        if save:
-            DataToJson(file1).save_json(list1)
+            return False
         
 
 if __name__ == '__main__':
