@@ -8,7 +8,6 @@ from utils.refine_information import RefineInformation
 실행 후 시작할 페이지와 종료할 페이지를 입력하여 실행
 """
 
-
 try:
     with Emart_Scrapping() as emart:
         
@@ -81,10 +80,6 @@ try:
                     continue
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1a12a6f9f1ac0126588b4986e8b2b40befb9ed5c
 except Exception as e:
     
     if 'in PATH' in str(e):
