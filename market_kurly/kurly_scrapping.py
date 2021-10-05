@@ -68,6 +68,7 @@ class Kurly_Scrapping(webdriver.Chrome):
         return product_url
 
     def get_product_name(self): # 상품의 이름을 가져오는 함수
+        time.sleep(0.5)
         product_name = self.find_element_by_class_name(
             'goods_name'
         ).find_element_by_class_name('name').text
@@ -106,49 +107,58 @@ class Kurly_Scrapping(webdriver.Chrome):
             'goods_price'
         ).find_element_by_class_name('dc_price').text
 
-        product_price = product_price.strip('원').replace(',','')                
+        product_price = product_price.strip('원')                
         print(f'product price: {product_price}')
-        return int(product_price)
+        return product_price
 
     def get_product_review(self): # 후기와 작성자명을 가져오는 함수
-        self.find_element_by_xpath('//*[@id="goods-view-infomation"]/div[1]/ul/li[3]/a').click()
+        # 리뷰 클릭
+        self.find_element_by_xpath('//*[@id="goods-view-infomation"]/div[1]/ul/li[3]/a').send_keys(Keys.ENTER)
+        time.sleep(1)
         reviews = []
         users = []
-        for page in range(3,11):
-            self.switch_to.frame('inreview')
-            for i in range(2,9):
-                # 작성자명
-                user_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/table/tbody/tr/td[4]'
-                user_name = self.find_element_by_xpath(user_path).text
-                if user_name == 'Marketkurly':
-                    time.sleep(1)
-                    continue
-                # 개별 리뷰 클릭
-                click_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/table/tbody/tr/td[2]/div[1]'
-                element = self.find_element_by_xpath(click_path)
-                self.execute_script("arguments[0].click();", element)
-                time.sleep(2)
-                # 개별 리뷰 수집
-                text_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/div/div[1]'
-                review = self.find_element_by_xpath(text_path).text 
-                if '\n\n\n' in review: # 그림 있는 경우
-                    review = review.split('\n\n\n')[1:]
-                    review = " ".join(review)
-                else: # 그림 없는 경우
-                    review = review.split('\n')[1:]
-                    review = " ".join(review)
+        try:
+            for page in range(3,11):
+                self.switch_to.frame('inreview')
+                for i in range(2,9):
+                    # 작성자명 수집
+                    time.sleep(0.5)
+                    user_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/table/tbody/tr/td[4]'
+                    user_name = self.find_element_by_xpath(user_path).text
+                    if user_name == 'Marketkurly' or user_name == 'MarketKurly': # 리뷰 중 공지사항 빼기
+                        time.sleep(1)
+                        continue
+                    # 개별 리뷰 클릭
+                    click_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/table/tbody/tr/td[2]/div[1]'
+                    element = self.find_element_by_xpath(click_path)
+                    self.execute_script("arguments[0].click();", element)
+                    time.sleep(2)
+                    # 개별 리뷰 수집
+                    text_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/div/div[1]'
+                    review = self.find_element_by_xpath(text_path).text 
+                    if '\n\n\n' in review: # 그림 있는 경우
+                        review = review.split('\n\n\n')[1:]
+                        review = " ".join(review)
+                    else: # 그림 없는 경우
+                        review = review.split('\n')[1:]
+                        review = " ".join(review)
 
-                value1 = {
-                    'user': user_name,
-                    'content': review
-                }
-                print(value1)
-                users.append(user_name)
-                reviews.append(review)
-    
-            page_path = '//*[@id="contents-wrapper"]/div[2]/a['+str(page)+']'
-            self.find_element_by_xpath(page_path).send_keys(Keys.ENTER)
-            time.sleep(3)
-            self.switch_to.default_content() 
-        return users, reviews # users까지 return하니까 오류 뜸
+                    value1 = {
+                        'user': user_name,
+                        'content': review
+                    }
+                    print(value1)
+                    users.append(user_name)
+                    reviews.append(review)
+                # 다음 리뷰 페이지로
+                page_path = '//*[@id="contents-wrapper"]/div[2]/a['+str(page)+']'
+                self.find_element_by_xpath(page_path).send_keys(Keys.ENTER)
+                time.sleep(3)
+                self.switch_to.default_content() 
+
+        except Exception as e:
+            print(f'리뷰가 부족합니다. 리뷰 개수: {len(reviews)}')
+            return users, reviews
+        
+        return users, reviews 
 

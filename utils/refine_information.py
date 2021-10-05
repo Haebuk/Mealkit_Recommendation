@@ -29,7 +29,7 @@ class RefineInformation:
         dict['storeName'] = store_name
         dict['category'] = category
         dict['brand'] = brand
-        dict['price'] = int(price.replace(',', ''))
+        dict['price'] = int(price.replace(',',''))
         dict['thumbnailUrl'] = img_url
         dict['contentUrl'] = product_url
         dict['isSoldOut'] = is_sold_out
@@ -62,3 +62,30 @@ class RefineInformation:
                 } for user, star, content in zip(users, stars, contents)
             ]
         }
+
+    @staticmethod
+    def refine_review_kurly( # 마켓컬리 리뷰 수집
+        title: str,
+        users: list,
+        contents: list
+    ):
+        """
+        리뷰 데이터를 json 파일로 저장하기 위해 딕셔너리로 변환하는 함수
+        :param title: 상품명
+        :param users: 리뷰 아이디 리스트
+        :param stars: 별점 리스트(공백)
+        :param contents: 리뷰 내용 리스트
+        :return dict: 딕셔너리
+        """
+        
+        return {
+            'name': title,
+            'reviews': [
+                {
+                    'user': user,
+                    'star': '',
+                    'content': content
+                } for user, content in zip(users, contents)
+            ]
+        }
+

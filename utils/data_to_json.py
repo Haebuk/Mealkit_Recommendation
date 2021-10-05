@@ -70,6 +70,6 @@ class DataToJson:
         
 
 if __name__ == '__main__':
-    # DataToJson('이마트몰_웨스턴_1_1.json').check_json_file_length()
-    DataToJson.integrate_file('이마트몰.json', '이마트몰_한식_7_8.json')
+    DataToJson('이마트몰리뷰.json').check_json_file_length()
+    # DataToJson.integrate_file('이마트몰.json', '이마트몰_한식_7_8.json')
 
