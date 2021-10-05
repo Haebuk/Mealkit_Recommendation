@@ -1,12 +1,13 @@
 import os
 # 마켓컬리 스크래핑 코드 작성
-
 import market_kurly.constants as const
 from selenium import webdriver
 from selenium.webdriver.remote.webdriver import WebElement
+from selenium.webdriver.common.keys import Keys
+import time
 
 class Kurly_Scrapping(webdriver.Chrome):
-    def __init__(self, driver_path = '/Users/chromedriver', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
+    def __init__(self, driver_path = 'C:/chromedriver.exe', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
         self.teardown = teardown
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -86,7 +87,6 @@ class Kurly_Scrapping(webdriver.Chrome):
         information = self.find_element_by_class_name('words').text
         print(f'product information: {information}')
         return information
-
     def get_soldout_info(self): # 품절 여부 판단하는 함수
         try:
             product_cart_button = self.find_element_by_id(
@@ -108,4 +108,46 @@ class Kurly_Scrapping(webdriver.Chrome):
         product_price = product_price.strip('원').replace(',','')                
         print(f'product price: {product_price}')
         return int(product_price)
+
+    def get_product_review(self): # 후기와 작성자명을 가져오는 함수
+        self.find_element_by_xpath('//*[@id="goods-view-infomation"]/div[1]/ul/li[3]/a').click()
+        reviews = []
+        users = []
+        for page in range(3,11):
+            self.switch_to.frame('inreview')
+            for i in range(2,9):
+                # 작성자명
+                user_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/table/tbody/tr/td[4]'
+                user_name = self.find_element_by_xpath(user_path).text
+                if user_name == 'Marketkurly':
+                    time.sleep(1)
+                    continue
+                # 개별 리뷰 클릭
+                click_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/table/tbody/tr/td[2]/div[1]'
+                element = self.find_element_by_xpath(click_path)
+                self.execute_script("arguments[0].click();", element)
+                time.sleep(2)
+                # 개별 리뷰 수집
+                text_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/div/div[1]'
+                review = self.find_element_by_xpath(text_path).text 
+                if '\n\n\n' in review: # 그림 있는 경우
+                    review = review.split('\n\n\n')[1:]
+                    review = " ".join(review)
+                else: # 그림 없는 경우
+                    review = review.split('\n')[1:]
+                    review = " ".join(review)
+
+                value1 = {
+                    'user': user_name,
+                    'content': review
+                }
+                print(value1)
+                users.append(user_name)
+                reviews.append(review)
+    
+            page_path = '//*[@id="contents-wrapper"]/div[2]/a['+str(page)+']'
+            self.find_element_by_xpath(page_path).send_keys(Keys.ENTER)
+            time.sleep(3)
+            self.switch_to.default_content() 
+        return users, reviews # users까지 return하니까 오류 뜸
 
