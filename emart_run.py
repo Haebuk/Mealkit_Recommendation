@@ -8,7 +8,6 @@ from utils.refine_information import RefineInformation
 실행 후 시작할 페이지와 종료할 페이지를 입력하여 실행
 """
 
-
 try:
     with Emart_Scrapping() as emart:
         
@@ -34,7 +33,6 @@ try:
             for iter in range(start, len(product_list)):
                 start = time.time()
                 print(f'----- page: {page}, iter: {iter+1} -----')
-
                 try:
                     image_url = product_image_urls[iter]
                     product_url = emart.access_product(iter)
