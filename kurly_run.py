@@ -1,6 +1,6 @@
 from market_kurly.kurly_scrapping import Kurly_Scrapping
 from utils.data_to_json import DataToJson
-from utils.refine_information import refine_information
+from utils.refine_information import RefineInformation
 import time
 """
 마켓컬리 크롤링 파일
@@ -16,8 +16,15 @@ try:
             kurly.land_next_page(page_idx)
             time.sleep(5)
 
+            filename = '마켓컬리정보.json'
+            review_filename = '마켓컬리리뷰.json'
+            data = DataToJson(filename)
+            review_data = DataToJson(review_filename)
+            json_review = review_data.load_json()
+            json_data = data.load_json()
             product_list = kurly.get_product_list()             # 상품 리스트 저장
             print(f'product list length: {len(product_list)}')  # 상품 리스트 길이 출력
+
             # product_image_urls = kurly.get_product_image_url()
 
             for iter in range(len(product_list)):               # iter: 0 ~ 리스트 길이 - 1         // product_list : 99개  -> 1페이지만 나오는 듯
@@ -41,10 +48,14 @@ try:
                 product_price = kurly.get_product_price()
                 is_sold_out = kurly.get_soldout_info()
                 user, review = kurly.get_product_review()
+                # print('--user--')
+                # print(user)
+                # print('--review--')
+                # print(review)
                 kurly.land_first_page()
                 time.sleep(3)
                 
-                product_dict = refine_information(
+                product_dict = RefineInformation().refine_information(
                     title=product_name,
                     store_name='마켓컬리',
                     category='',
@@ -54,9 +65,16 @@ try:
                     product_url=product_url,
                     is_sold_out=is_sold_out,
                     detail=product_information
-                    )
+                )
+                review_dict = RefineInformation().refine_review_kurly(
+                        title=product_name,
+                        users=user,
+                        contents=review
+                )
                 json_data.append(product_dict)
+                json_review.append(review_dict)
                 data.save_json(json_data)
+                review_data.save_json(json_review)
                 if iter == len(product_list)-1:
                      break
 
