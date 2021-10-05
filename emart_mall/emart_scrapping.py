@@ -3,7 +3,8 @@ import emart_mall.constants as const
 from selenium import webdriver
 
 class Emart_Scrapping(webdriver.Chrome):
-    def __init__(self, driver_path = '/Users/chromedriver', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
+    def __init__(self, driver_path = 'C:/chromedriver.exe', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
+
         self.teardown = teardown
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
