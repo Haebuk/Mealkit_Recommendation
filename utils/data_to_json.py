@@ -28,7 +28,6 @@ class DataToJson:
         data: 저장할 데이터
         filename: 저장할 파일명
         """
-        import json
         with open(self.filename, 'w', encoding='utf-8') as f: # json 파일로 저장
             json.dump(data, f, indent=4, ensure_ascii=False)
         print(f'{self.filename} saved.') # 저장 완료 메시지 출력
@@ -39,12 +38,38 @@ class DataToJson:
         json 파일의 길이를 확인하는 함수
         param: filename: json 파일의 이름
         """
-        import json
-
         with open(self.filename, 'r', encoding='utf-8') as f:
             data = json.load(f)
         print(f'{self.filename} 파일의 길이: {len(data)}')
 
+    @staticmethod
+    def integrate_file(file1, file2):
+        """
+        두 파일을 첫번째 파일 하나로 합치는 함수
+        param: file2: 첫 번째 파일의 이름(해당 파일로 합쳐짐)
+        param: file2: 두 번째 파일의 이름
+        """
+        list1 = DataToJson(file1).load_json()
+        list2 = DataToJson(file2).load_json()
+        print(f"{file1}의 길이: {len(list1)}")
+        print(f"{file2}의 길이: {len(list2)}")
+        run = input("합치시겠습니까? (y/n)")
+        if run == 'y' or run == 'Y':
+            list1.extend(list2)
+            print(f"합쳤습니다. {file1}의 길이: {len(list1)}")
+            save = input("저장하시겠습니까? (y/n)")
+            if save == 'y' or save == 'Y':
+                DataToJson(file1).save_json(list1)
+                return True
+            else:
+                print("종료되었습니다.")
+                return False
+        else:
+            print("종료되었습니다.")
+            return False
+        
+
 if __name__ == '__main__':
-    DataToJson('이마트몰_웨스턴_2_5.json').check_json_file_length()
+    # DataToJson('이마트몰_웨스턴_1_1.json').check_json_file_length()
+    DataToJson.integrate_file('이마트몰.json', '이마트몰_한식_7_8.json')
 
