@@ -162,6 +162,7 @@ class Kurly_Scrapping(webdriver.Chrome):
                 self.switch_to.default_content() 
 
         except Exception as e:
+            print(e)
             print(f'리뷰가 부족합니다. 리뷰 개수: {len(reviews)}')
             return users, reviews
         

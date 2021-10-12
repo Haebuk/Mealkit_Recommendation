@@ -7,19 +7,20 @@ import time
 마켓컬리 크롤링 파일
 &page 쿼리 스트링이 없기 때문에 하단의 페이지 버튼을 클릭하는 방법으로 자동화 해야함.
 """
-filename = '마켓컬리1.json'
+
+filename = '마켓컬리2.json'
 data = DataToJson(filename)
 try:
 
     with Kurly_Scrapping() as kurly:
-        for page_idx in range(1,4):
+        for page_idx in range(1,2):
             kurly.land_first_page()                             # 밀키트.메인요리 페이지 오픈
             time.sleep(5)
             kurly.land_next_page(page_idx)
             time.sleep(5)
+            filename = '마켓컬리정보_2.json'
+            review_filename = '마켓컬리리뷰_2.json'
 
-            filename = '마켓컬리정보1.json'
-            # review_filename = '마켓컬리리뷰1.json'
             data = DataToJson(filename)
             # review_data = DataToJson(review_filename)
             # json_review = review_data.load_json()
