@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.remote.webdriver import WebElement
 from selenium.webdriver.common.keys import Keys
 import time
+import re
 
 class Kurly_Scrapping(webdriver.Chrome):
     def __init__(self, driver_path = 'C:/chromedriver.exe', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
@@ -43,13 +44,13 @@ class Kurly_Scrapping(webdriver.Chrome):
         return product_image_url
 
 
-    def get_product_image_url(self): # 상품 이미지 url을 가져오는 함수
-        product_image_urls_css = self.find_elements_by_css_selector("#goodsList > div.list_goods > div > ul > li > div > div > a > img")
-        product_image_urls = []
-        for label in product_image_urls_css:
-            product_image_urls.append(label.get_attribute('src'))
+    # def get_product_image_url(self): # 상품 이미지 url을 가져오는 함수
+    #     product_image_urls_css = self.find_elements_by_css_selector("#goodsList > div.list_goods > div > ul > li > div > div > a > img")
+    #     product_image_urls = []
+    #     for label in product_image_urls_css:
+    #         product_image_urls.append(label.get_attribute('src'))
         
-        return product_image_urls
+    #     return product_image_urls
 
 
     def get_product_list(self): # 상품 리스트를 가져오는 함수, 최대 99개
@@ -110,6 +111,10 @@ class Kurly_Scrapping(webdriver.Chrome):
         product_price = product_price.strip('원')                
         print(f'product price: {product_price}')
         return product_price
+    def optimize_name(self, name):
+        opt = " \(.*\)|\[.*\] |\(.*\)| \d{3}|[g]"
+        optimized_name = re.sub(opt,"",name)
+        return optimized_name
 
     def get_product_review(self): # 후기와 작성자명을 가져오는 함수
         # 리뷰 클릭
@@ -162,4 +167,5 @@ class Kurly_Scrapping(webdriver.Chrome):
             return users, reviews
         
         return users, reviews 
+
 
