@@ -1,8 +1,6 @@
-import os
 # 마켓컬리 스크래핑 코드 작성
 import market_kurly.constants as const
 from selenium import webdriver
-from selenium.webdriver.remote.webdriver import WebElement
 from selenium.webdriver.common.keys import Keys
 import time
 import re
@@ -137,7 +135,7 @@ class Kurly_Scrapping(webdriver.Chrome):
                     click_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/table/tbody/tr/td[2]/div[1]'
                     element = self.find_element_by_xpath(click_path)
                     self.execute_script("arguments[0].click();", element)
-                    time.sleep(2)
+                    time.sleep(1)
                     # 개별 리뷰 수집
                     text_path = '//*[@id="contents-wrapper"]/div[1]/div/form/div['+str(i)+']/div/div[1]'
                     review = self.find_element_by_xpath(text_path).text 
@@ -158,7 +156,7 @@ class Kurly_Scrapping(webdriver.Chrome):
                 # 다음 리뷰 페이지로
                 page_path = '//*[@id="contents-wrapper"]/div[2]/a['+str(page)+']'
                 self.find_element_by_xpath(page_path).send_keys(Keys.ENTER)
-                time.sleep(3)
+                time.sleep(1)
                 self.switch_to.default_content() 
 
         except Exception as e:
