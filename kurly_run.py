@@ -11,13 +11,13 @@ import time
 try:
 
     with Kurly_Scrapping() as kurly:
-        for page_idx in range(1,4):
+        for page_idx in range(0,4):
             kurly.land_first_page()                             # 밀키트.메인요리 페이지 오픈
             time.sleep(1)
             kurly.land_next_page(page_idx)
             time.sleep(1)
-            filename = '마켓컬리정보_test.json'
-            review_filename = '마켓컬리리뷰_test.json'
+            filename = '마켓컬리정보_1024.json'
+            review_filename = '마켓컬리리뷰_1024.json'
 
             data = DataToJson(filename)
             review_data = DataToJson(review_filename)
@@ -29,8 +29,9 @@ try:
             # product_image_urls = kurly.get_product_image_url()
 
             for iter in range(len(product_list)):               # iter: 0 ~ 리스트 길이 - 1         // product_list : 99개  -> 1페이지만 나오는 듯
-
+                
                 json_data = data.load_json()
+                names = [d['name'] for d in json_data] # 마켓컬리 정보 json에 있는 상품명 리스트
                 kurly.refresh()
                 kurly.land_first_page()
                 time.sleep(1) 
@@ -39,9 +40,12 @@ try:
                 print('------' + str(iter+1) + '------')        # ------ 1 ------
                 kurly.click_product(iter)                       # iter에 해당하는 상품 클릭 0~98
                 kurly.refresh()
+                product_name = kurly.get_product_name()
+                if product_name in names: # 이미 저장된 상품이면 넘어감
+                    print('중복된 상품명')
+                    continue
                 product_url = kurly.get_product_url()
                 image_url = kurly.get_product_image_url()
-                product_name = kurly.get_product_name()
                 # product_name = kurly.optimize_name(product_name)
                 product_brand = kurly.get_brand_name()
                 product_information = kurly.get_product_information()

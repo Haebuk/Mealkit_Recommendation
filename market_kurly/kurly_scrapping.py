@@ -6,10 +6,13 @@ import time
 import re
 
 class Kurly_Scrapping(webdriver.Chrome):
-    def __init__(self, driver_path = 'C:/chromedriver.exe', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
+    def __init__(self, driver_path = '/mnt/nas3/rjs/chromedriver', teardown=False): # C 드라이브에 있는 크롬 드라이버를 사용하도록 설정
         self.teardown = teardown
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
         super(Kurly_Scrapping, self).__init__(options=options, executable_path=driver_path)
         # self.maximize_window()
         self.implicitly_wait(const.IMPLICIT_WAIT_TIME)
