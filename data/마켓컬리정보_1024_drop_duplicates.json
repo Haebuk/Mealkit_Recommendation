@@ -1432,7 +1432,7 @@
     {
         "name":"[테이스티반점] 짜사이 무침",
         "storeName":"마켓컬리",
-        "category":"중식ㅅ",
+        "category":"중식",
         "brand":"테이스티반점",
         "price":3500,
         "thumbnailUrl":"https:\/\/img-cf.kurly.com\/shop\/data\/goods\/1620279215588y0.jpg",
@@ -2957,5 +2957,558 @@
         "contentUrl":"https:\/\/www.kurly.com\/shop\/goods\/goods_view.php?&goodsno=69404",
         "isSoldOut":false,
         "detail":"4대 째 두부 장인의 전통을 이어온 브랜드, 김구원선생의 두부를 근사한 요리로 즐겨보세요. 지금 소개하는 제품은 고소한 국물맛이 매력적인 우삼겹 순두부예요. 전통 방식으로 구수하게 만든 국산 순두부와 엄선한 우삼겹을 한데 모아 준비했답니다. 얼큰한 육수와 각종 채소까지 알차게 꾸려 담았으니, 모든 재료를 넣고 보글보글 끓여보세요. 청양고추, 달걀 등 취향에 맞는 재료를 더하면 더욱 풍성한 한 상이 완성될 거예요."
+    }
+    ,
+    {
+        "name":"[진실된손맛] 매생이 계란말이",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"진실된손맛",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1583981368665y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=49206",
+        "isSoldOut":false,
+        "detail":"매생이는 철분과 칼슘 등 영양소를 듬뿍 함유해 바다의 채소라고도 불려요. 다양한 요리에 활용될 수 있지만 손질하는 데에 손이 많이 가죠. 진실된손맛의 매생이 계란말이로 간편하게 영양 가득한 한 끼를 차려보세요. 씹을 때마다 바다 향이 가득 퍼지는 매생이와 부드러운 계란의 조화로 눈도 입도 즐거울 거예요. 자르지 않고 긴 계란말이 그대로 보내드리니 취향에 따라 김밥의 속 재료나 도시락 반찬으로 활용할 수 있답니다."
+    }
+    ,
+    {
+        "name":"[해밀 : 바다가 주는 식사] 제철 맞은 가리비 로제 스튜 540g (리뉴얼)",
+        "storeName":"마켓컬리",
+        "category":"웨스턴",
+        "brand":"해밀 : 바다가 주는 식사",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1634276247742y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=61131",
+        "isSoldOut":false,
+        "detail":"해밀은 바다가 주는 신선한 해산물, 그리고 삼삼해물의 레시피를 담은 밀키트 브랜드입니다. 이번에 해밀이 선보이는 밀키트는 한 입 먹자마자 기분 좋은 미소를 짓게 해 줄 가리비 로제 스튜예요. 살이 통통한 가리비는 부드럽고 쫄깃한 식감을 자랑하는데요. 토마토와 크림소스의 매력을 동시에 느낄 수 있는 로제 소스와 무척 잘 어울린답니다. 스튜의 맛을 한층 더 살려줄 채소와 향신료까지 동봉되어 있으니, 해밀의 밀키트만으로 근사한 저녁을 즐겨 보세요."
+    }
+    ,
+    {
+        "name":"[Sea to Table] 생생통통 삼치조림 (매콤무조림) 600g(냉장)",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"Sea to Table",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1573611508680y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=43683",
+        "isSoldOut":false,
+        "detail":"간편하면서도 전문 매장에서 먹는 듯 훌륭한 맛을 즐길 수 있을 것. 이것이 밀키트를 구매하는 분들이 기대하는 바일 거예요. 그런 의미에서 Sea to Table의 생선조림은 더할 나위 없이 만족스러운 선택지입니다. 컬리는 간고등어 조림에 이어 살이 통통하게 오른 삼치조림까지 선보일게요. 320g 내외의 국산 삼치에 가볍게 소금간을 하고 무, 대파, 양파, 고추 등의 손질 채소를 따로 포장했어요. 여기에 고추장과 고춧가루로 매콤하게 맛을 낸 특제 소스도 챙겨 넣었습니다. 적당한 크기의 냄비와 물만 준비해서 바로 자박자박 끓여 보세요. "
+    },
+    {
+        "name":"[레디잇] 닭맥적구이와 참나물무침",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"레디잇",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1618801355891y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=69835",
+        "isSoldOut":false,
+        "detail":"레디잇은 테이스티 나인이 선보이는 간편 밀키트 브랜드예요. 조리 시간을 최소화해 시간이 없는 분들도 뚝딱 근사한 요리를 완성할 수 있죠. 레디잇에서 선보이는 닭맥적구이와 참나물무침으로 상큼한 기분을 북돋아보세요. 닭의 여러 부위 중에서도 다리살만 선별해 만들어 보다 쫄깃한 식감을 즐길 수 있어요. 한국식 된장과 미소된장으로 버무린 닭다리살은 감칠맛이 감돌고, 새콤한 소스에 버무린 참나물 무침과도 조화롭게 어우러진답니다."
+    },
+    {
+        "name":"[해밀 : 바다가 주는 식사] 홍합&가리비&새우 토마토 스튜 621g (리뉴얼)",
+        "storeName":"마켓컬리",
+        "category":"웨스턴",
+        "brand":"해밀 : 바다가 주는 식사",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1634277815808y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=61781",
+        "isSoldOut":false,
+        "detail":"해밀은 바다가 주는 신선한 해산물, 그리고 삼삼해물의 레시피를 담은 밀키트 브랜드입니다. 이번에 해밀이 선보이는 밀키트는 해산물과 궁합이 좋은 상큼한 토마토 스튜예요. 토마토의 신선함이 담긴 소스는 쫄깃한 식감을 자랑하는 가리비, 부드러운 홍합, 탱글탱글한 새우와 더없이 잘 어울리죠. 스튜의 맛을 한층 더 살려줄 채소와 향신료까지 동봉되어 있으니, 해밀의 밀키트만으로 근사하고 따뜻한 저녁을 즐겨 보세요. 연말까지만 만나볼 수 있으니, 서둘러 담아가세요."
+    }
+    ,
+    {
+        "name":"[해밀 : 바다가 주는 식사] 제철 맞은 가리비 토마토 스튜 581g (리뉴얼)",
+        "storeName":"마켓컬리",
+        "category":"웨스턴",
+        "brand":"해밀 : 바다가 주는 식사",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1634276009148y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=61132",
+        "isSoldOut":false,
+        "detail":"해밀은 바다가 주는 신선한 해산물, 그리고 삼삼해물의 레시피를 담은 밀키트 브랜드입니다. 이번에 해밀이 선보이는 밀키트는 해산물과 궁합이 좋은 상큼한 토마토 스튜예요. 토마토의 신선함이 담긴 소스는 살이 통통하게 올라 부드럽고 쫄깃한 식감을 자랑하는 가리비와 아주 잘 어울리죠. 스튜의 맛을 한층 더 살려줄 채소와 향신료까지 동봉되어 있으니, 해밀의 밀키트만으로 근사하고 따뜻한 저녁을 즐겨 보세요."
+    },
+    {
+        "name":"[My little recipe] 안동에서 올라온 매콤치즈찜닭 (2인용)",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"My little recipe",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/158287056277y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=49406",
+        "isSoldOut":false,
+        "detail":"든든함과 편리함을 고루 갖춘 My little recipe 찜닭 밀키트를 만나보세요. 매콤한 양념이 쏙쏙 밴 찜닭 위에 모짜렐라 치즈를 가득 얹은 매콤 치즈 찜닭입니다. 무항생제로 건강하게 키운 닭고기와, 다양한 국내산 채소들을 사용해 더욱 안심하고 즐길 수 있어요. 필요한 모든 재료들을 위생적으로 개별 포장하여 담았기에, 언제 어디서나 간편하게 양념 찜닭을 조리할 수 있답니다. 찜닭이 품고 있는 신선한 냉장 닭의 육질과, 중화풍 납작당면의 쫄깃함, 매콤한 양념과 어우러지는 부드러운 치즈의 풍미를 경험해 보세요."
+    }
+    ,
+    {
+        "name":"[해밀 : 바다가 주는 식사] 홍합 토마토 스튜 세트 581g (리뉴얼)",
+        "storeName":"마켓컬리",
+        "category":"웨스턴",
+        "brand":"해밀 : 바다가 주는 식사",
+        "price":9900,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1634277659249y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=59986",
+        "isSoldOut":false,
+        "detail":"해밀은 바다가 주는 신선한 해산물, 그리고 삼삼해물의 레시피를 담은 밀키트 브랜드입니다. 이번에 해밀이 선보이는 밀키트는 따끈하게 속을 데워 주는 홍합 토마토 스튜예요. 탱글탱글한 국내산 홍합과 채소들을 넉넉히 담았어요. 토마토 소스를 넣고 뭉근하게 끓여주면, 새콤하면서도 칼칼한 풍미가 고루 스며 들어 더할 나위 없답니다. 따로 재료를 준비할 필요가 없어 무척 간편할 거예요. 파스타는 물론, 러스크, 바게트 등의 식사빵을 곁들여도 참 잘 어울릴 거예요."
+    },
+    {
+        "name":"[해밀 : 바다가 주는 식사] 홍합 어묵탕 세트 471g (리뉴얼)",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"해밀 : 바다가 주는 식사",
+        "price":9900,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1634275672657y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=59985",
+        "isSoldOut":false,
+        "detail":"해밀은 바다가 주는 신선한 해산물, 그리고 삼삼해물의 레시피를 담은 밀키트 브랜드입니다. 이번에 해밀이 선보이는 밀키트는 뜨끈뜨끈 시원한 국물맛이 일품인 홍합 어묵탕이에요. 신선한 국내산 홍합을 비롯해 슬라이스된 무, 마늘, 파, 그리고 국물을 위한 분말 스프까지 알차게 담아냈지요. 여기에 삼진어묵의 다채로운 어묵을 더해 더욱 풍성하고도 특별한 구성을 완성했답니다. 순서에 따라 차근차근 조리하면 근사한 탕 요리 한 그릇도 손쉽게 만들 수 있을 거예요."
+    }
+    ,
+    {
+        "name":"[둥구나무 : 기운 나는] 장어탕",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"둥구나무 : 기운 나는",
+        "price":7600,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/162303409162y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=72979",
+        "isSoldOut":false,
+        "detail":"무더운 여름엔 쉽게 지치지 않도록 미리 영양을 채워두는 게 중요하죠. 둥구나무 : 기운 나는의 장어탕으로 지친 몸에 활기를 더해 주세요. 둥구나무는 국내산 장어를 푹 고아 낸 뒤 체에 곱게 걸러냈어요. 재래식 된장으로 깊은 맛을 내고 장어탕에 빠질 수 없는 우거지까지 넉넉하게 넣어 완성했답니다. 한 숟가락 떠먹으면, 구수하면서도 녹진한 국물 맛에 금세 속이 든든해질 거예요."
+    },
+    {
+        "name":"[My little recipe] 사리듬뿍 순살 닭갈비 대용량 (3~4인용)",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"My little recipe",
+        "price":25935,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1589522471813y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=52101",
+        "isSoldOut":false,
+        "detail":"통통한 닭고기, 다양한 채소와 사리를 매콤하게 볶은 닭갈비는 인기 만점 외식 메뉴인데요. 든든함과 편리함을 고루 갖춘 My little recipe 밀키트로, 이제 집에서도 맛있는 닭갈비를 푸짐하게 즐겨보세요. 신선한 국내산 닭다리살과 다양한 채소, 면과 떡 사리를 위생적으로 개별 포장해 담았습니다. 해동이 필요 없는 순살 냉장육을 사용했기에 육질이 살아있고 부드러워요. 함께 동봉된 특제 소스 덕분에 따로 레시피를 찾지 않고도 쉽게 조리할 수 있지요. 별도의 재료 준비와 손질이 필요 없는 간편 밀키트로 온 가족을 위한 일품요리를 만들어 보세요. "
+    }
+    ,
+    {
+        "name":"[킨더가든] 어린이 볶음밥용 크래미 채소볶음",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"킨더가든",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1627624190145y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=77494",
+        "isSoldOut":false,
+        "detail":"정성 가득한 집밥 레시피로 사랑받은 정미경키친에서 아이들의 눈과 입을 즐겁게 해 줄 어린이 반찬 브랜드, 킨더가든을 선보입니다. 이번에는 밥과 함께 볶아내면 언제 어디서나 손쉽게 볶음밥을 만들 수 있게 해주는 크래미 채소볶음을 소개할게요. 아이가 먹기 편하도록 국산 애호박, 당근, 버섯 등을 잘게 다졌어요. 부드러운 계란과 크래미를 더해 먹음직스럽게 완성했고요. 재료 준비부터 손질까지, 은근히 준비하기 까다로운 볶음밥도 킨더가든과 함께라면 문제없을 거예요. "
+    },
+    {
+        "name":"[채식지향] 7가지 채소구이와 흑임자소스",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"채식지향",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1620018808499y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=70661",
+        "isSoldOut":false,
+        "detail":"소중한식사의 남다른 요리 내공을 담은 브랜드, 채식지향으로 다채로운 채식 식단을 즐겨보세요. 구운 채소의 달큼함만큼 매력적인 단맛이 또 있을까요. 채식지향은 일곱 가지 채소를 오븐에 구운 다음, 토치로 한번 더 구워 본연의 단맛을 최대한 끌어올렸어요. 여기에 간장과 올리브오일로 감칠맛을 더한 흑임자 소스를 함께 구성해 더 풍부한 맛을 완성했답니다. 영양 가득한 채소 구이도 더욱 간편하고 맛있게 즐길 수 있을 거예요."
+    }
+    ,
+    {
+        "name":"[미자언니네] 살치살&새우 찹스테이크",
+        "storeName":"마켓컬리",
+        "category":"웨스턴",
+        "brand":"미자언니네",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1574662485201y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=44309",
+        "isSoldOut":false,
+        "detail":"소고기 찹스테이크는 보기만 해도 흐믓해지는 요리입니다. 솜씨 좋은 미자언니네는 새우를 넣어 보다 풍성한 식감을 자아내는 소고기 찹스테이크를 선보여요. 한 번 데친 새우와 육질이 연하기로 이름난 살치살, 양파, 브로콜리, 파프리카, 버섯 등의 채소를 한 입 크기로 썰고 함께 볶아냈지요. 돈가스 소스, 디종머스터드, 미자언니네 맛간장 등으로만 맛을 낸 새콤달콤한 비법 소스를 더하여 남녀노소가 즐기기 좋은 일품요리를 완성했답니다. 개운한 감칠맛을 전하기 위해 식품첨가물을 일절 사용하지 않았어요. 따뜻하게 데우기만 한 뒤 그릇에 담아 식탁 위에 올려보세요. 특별한 날을 더욱 빛내줄 일품요리가 돼줄 거예요. "
+    },
+    {
+        "name":"[킨더가든] 우리아이 크래미 달걀찜",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"킨더가든",
+        "price":7950,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1627611426300y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=77490",
+        "isSoldOut":false,
+        "detail":"정성 가득한 집밥 레시피로 사랑받은 정미경키친에서 아이들의 눈과 입을 즐겁게 해 줄 어린이 반찬 브랜드, 킨더가든을 선보입니다. 이번에 소개할 반찬은 아이들이 좋아하는 크래미를 넣어 만든 달걀찜이랍니다. 크래미와 애호박을 먹기 좋은 크기로 잘라 넣고 부들부들한 식감을 살려 쪄냈어요. 국산 계란을 사용했기에 아이들에게 안심하고 내어줄 수 있고요. 아이를 위한 담백한 반찬이 필요할 때 부담 없이 선택해 보세요. "
+    }
+    ,
+    {
+        "name":"[LOTS OF LOVE] 이태리식 토마토갈비찜",
+        "storeName":"마켓컬리",
+        "category":"웨스턴",
+        "brand":"LOTS OF LOVE",
+        "price":26900,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1576033023959y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=43263",
+        "isSoldOut":false,
+        "detail":"보통 갈비찜이라고 하면 고춧가루와 간장으로 양념을 발라 매콤 짭짤하게 만든 것이나 설탕과 간장으로 달큰하게 조린 걸 상상할 거예요. 하지만 이번에 컬리가 준비한 갈비찜은 조금 더 특별해요. 진한 감칠맛의 토마토소스를 입혀 마치 이탈리아 레스토랑에서 먹는 듯한 느낌을 주는 요리랍니다. 한식처럼 당면이나 두꺼운 감자를 넣는 대신 새송이버섯과 연근으로 색다르면서도 다채로운 식감을 준 것도 매력적이에요. 혀를 아릿하게 만드는 향신료가 없으니 레드 와인에 곁들일 메인 요리로도 알맞을 거예요. "
+    },
+    {
+        "name":"[도리깨침] 구절판",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"도리깨침",
+        "price":24500,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1607061358523y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=62476",
+        "isSoldOut":false,
+        "detail":"아홉 가지 재료를 세심히 손질해 담아내는 구절판, 고운 담음새로 상차림에서 특히 빛을 발하는 음식인데요. 번거로움을 덜어드리기 위해, 도리깨침이 간편하게 즐길 수 있는 구절판을 준비했어요. 일정한 두께로 한 장 한 장 손수 부쳐낸 밀 전병과 새우, 소고기, 계란 등의 재료를 고루 담은 상품이지요. 하얀 전병 위에 형형색색의 재료들을 하나씩 올려 주면, 눈과 입이 모두 즐거운 쌈 요리가 완성된답니다. 새콤한 겨자 소스를 톡톡 찍어 먹으면 더할 나위 없을 거예요. 도리깨침의 구절판으로 우아한 상차림을 완성해 보세요."
+    }
+    ,
+    {
+        "name":"[미자언니네] 해초 가득 월남쌈",
+        "storeName":"마켓컬리",
+        "category":"일식/아시안",
+        "brand":"미자언니네",
+        "price":14450,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1620097195617y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=70655",
+        "isSoldOut":false,
+        "detail":"선미자 요리연구가의 손맛이 담긴 미자언니네의 해초 가득 월남쌈을 만나 보세요. 국내산 미역, 톳, 꼬시래기 등 오독오독 식감 좋은 해초들로 더욱 색다르고 건강하게 즐길 수 있는 제품이에요. 신선한 채소는 물론 고기와 맛살, 라이스페이퍼까지. 월남쌈에 필요한 재료는 모두 준비되어 있답니다. 재료를 넣고 돌돌 말아 소스에 콕 찍어서 드셔 보세요. 피넛 소스와 청양고추 소스, 두 가지를 함께 보내 드리니 취향에 맞게 골라 즐기기도 좋답니다."
+    },
+    {
+        "name":"[게방찬] 주꾸미 볶음 350g (냉동)",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"게방찬",
+        "price":8200,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1561956123105y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=37554",
+        "isSoldOut":false,
+        "detail":"톡 쏘는 매운맛 대신 은은한 매콤함과 달큰함으로 입맛 돋아줄 주꾸미 볶음을 준비했어요. 꼼꼼하게 엄선한 주꾸미를 깨끗하게 손질한 뒤 특제양념에 버무려 냉동한 제품이에요. 미쉐린 가이드에 선정된 게방식당이 선보이는 상품답게 한 번 맛보면 다시 맛보고 싶은 감칠맛을 자랑하지요. 약불에 지글지글 볶아주면 야들야들한 자태 뽐내는 주꾸미 볶음이 완성된답니다. 갓 지은 밥에 올려 비벼 드셔도 좋고, 익힌 콩나물, 김, 날치알 등 기호에 따라 재료를 준비해 쌈을 싸드시는 것도 추천해요."
+    }
+    ,
+    {
+        "name":"[소중한식사] 비빔두부면",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"소중한식사",
+        "price":5985,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1595923766349y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=54891",
+        "isSoldOut":false,
+        "detail":"평소 두부를 좋아했다면, 소중한식사가 새롭게 해석한 두부 요리가 마음에 드실 거예요. 면 요리가 당기지만 높은 탄수화물 비중 때문에 참고 있었다면, 두부면을 만나보세요. 얇고 납작해 후루룩 먹을 수 있는 두부면을 매콤한 양념장에 비벼 각종 채소와 함께 보내드려요. 재료를 모두 넣고 잘 섞어주면 완성이랍니다. 두부로 만들어 식단 조절에 용이하지만, 매콤하기 때문에 짜릿한 해방감도 느낄 수 있답니다. "
+    },
+    {
+        "name":"[미자언니네 : 맛있는 뿌리채소] 연근 유자청 샐러드",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"미자언니네 : 맛있는 뿌리채소",
+        "price":4900,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1615184729403y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=67886",
+        "isSoldOut":false,
+        "detail":"선미자 요리연구가의 손맛과 노하우로 유명한 미자언니네가 영양 만점 뿌리채소로 만든 특별한 반찬들을 선보입니다. 이번에 소개하는 연근 유자청 샐러드는 어떤 요리와도 잘 어울리는 상큼한 샐러드예요. 밑반찬은 물론 스테이크나 해산물에 곁들이기도 딱이죠. 아삭하게 씹히는 연근과 파프리카, 새콤달콤한 유자청 드레싱이 조화롭게 어우러진답니다. 미자언니네와 함께 다양한 영양소를 함유한 뿌리채소를 새롭게 즐겨 보세요. "
+    }
+    ,
+    {
+        "name":"[배나무골] 연잎 삼겹살 (냉장)",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"배나무골",
+        "price":10500,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1600669626498y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=59395",
+        "isSoldOut":false,
+        "detail":"향긋한 연잎이 통삼겹을 싹 감싸 안은 배나무골의 연잎 삼겹살을 만나 보세요. 저온에서 숙성한 통삼겹을 훈연하여 잡내와 기름기를 빼고, 본연의 고소한 맛을 살렸어요. 삼겹살은 모두 슬라이스 된 채 연잎에 싸여 있어 별도로 썰거나 손질할 필요도 없지요. 전자레인지에서 4분만 조리하면 금세 완성되니 더욱 간편하답니다. 연잎을 살짝 벗겨내 그대로 플레이팅해도 아주 근사해요. 홈파티 메뉴로 활용하거나 손님상에 간단히 내기도 좋을 거예요."
+    },
+    {
+        "name":"[미자언니네] 양배추&다시마 해물쌈장 키트",
+        "storeName":"마켓컬리",
+        "category":"한식",
+        "brand":"미자언니네",
+        "price":6500,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/162485765372y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=75634",
+        "isSoldOut":false,
+        "detail":"선미자 요리연구가의 손맛이 담긴 반찬을 선보이는 미자언니네의 양배추&다시마 해물쌈장 키트를 만나보세요. 부드럽게 삶은 양배추와 바다 내음 가득한 다시마를 함께 담아냈답니다. 국산 바지락살을 비롯해 새송이버섯, 양파, 마늘 등을 송송 썰어 넣은 해물쌈장까지 알차게 구성했지요. 쌈장만 넣어 그대로 드셔도 별미 반찬으로 훌륭하고요. 밥이나 고기 등을 곁들여 쌈밥으로 활용하기에도 참 좋을 거예요."
+    }
+    ,
+    {
+        "name":"[콜린스 다이닝] 브리또볼",
+        "storeName":"마켓컬리",
+        "category":"웨스턴",
+        "brand":"콜린스 다이닝",
+        "price":9025,
+        "thumbnailUrl":"https://img-cf.kurly.com/shop/data/goods/1580705200634y0.jpg",
+        "contentUrl":"https://www.kurly.com/shop/goods/goods_view.php?&goodsno=45195",
+        "isSoldOut":false,
+        "detail":"브리또는 쌀, 콩, 채소, 고기 등의 재료를 또띠아로 감싸 한 손에 들고 먹는 음식이에요. 컬리는 이 브리또를 새롭게 재해석해, 한 그릇에 담아 먹는 '브리또 볼'을 준비했습니다. 부슬부슬하게 지은 밥, 다진 돼지고기, 아삭한 양상추로 다채롭게 담아냈는데요. 특제 살사소스를 듬뿍 넣어 특유의 감칠맛을 살렸습니다. 눈처럼 내린 치즈와 담백한 핀토 빈은 씹는 맛까지 더해주고요. 함께 들어있는 또띠아를 활용해 카나페처럼 재료를 조금씩 올려 드셔 보세요. 샌드위치나 샐러드가 한 끼 식사로 부족하게 느껴질 때, 컬리의 브리또 볼이 좋은 선택이 되어 줄 거예요. "
+    },
+    {
+        "name":"[하림] 닭한마리 칼국수 밀키트",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":9990,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"[두부씨의 건강한끼] 가벼운 포두부 월남쌈 (리뉴얼)",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7050,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"[아임제주] 제주메밀 들참국수 (2인분)",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7600,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"[미자언니네] 마파두부",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":5500,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"[콜린스 다이닝] 문어 보리 샐러드",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7650,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"[미트지엥] Flex 부채살 스테이크",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":15345,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    },
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
+    }
+    ,
+    {
+        "name":"",
+        "storeName":"마켓컬리",
+        "category":"",
+        "brand":"",
+        "price":7950,
+        "thumbnailUrl":"",
+        "contentUrl":"",
+        "isSoldOut":false,
+        "detail":""
     }
 ]
