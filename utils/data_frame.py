@@ -1,36 +1,34 @@
 import json
 import pandas as pd
-import numpy as np
+from tqdm import tqdm
 
-class Data_frame:
-    def __init__(self, a, b):
-        self.name1 = a
-        self.name2 = b
-    def get_DF(self):
-        if self.name2 == '정보':
-            if self.name1 == '마켓컬리':
-                path = './data/'+self.name1+'정보_1024_drop_duplicates.json'
-            elif self.name1 == '이마트몰':
-                path = './data/'+self.name1+'.json'
+class DataFrame:
+    """
+    dataframe 가공 관련 클래스
+    :params store_name: 상점 이름 (마켓컬리 or 이마트몰)
+    :params data_type: 정보 or 리뷰
+    """
+    def __init__(self, store_name='마켓컬리', data_type='정보'):
+        self.store_name = store_name # 상점 이름 (마켓컬리 or 이마트몰)
+        self.data_type = data_type # json 파일 타입 (정보 or 리뷰)
+        
+    def get_df(self):
+        """
+        정보나 리뷰 json 파일을 불러와 pandas dataframe으로 바꾸는 함수
+        """
+        path = './data/' + self.store_name + self.data_type + '.json' # json 파일 경로
+        if self.data_type == '정보':
             with open(path, encoding='utf-8') as f:
-                result = pd.read_json(f)
-            return result
-        elif self.name2 == '리뷰':
-            if self.name1 == '마켓컬리':
-                path = './data/'+self.name1+'리뷰_1024_drop_duplicates.json'
-            elif self.name1 == '이마트몰':
-                path = './data/'+self.name1+'리뷰.json'
+                result = pd.read_json(f) # 정보 json은 pandas 에서 바로 로드 가능
+        elif self.data_type == '리뷰':
             with open(path, encoding='utf-8') as f:
-                data = json.load(f)
+                data = json.load(f) # 리뷰 json은 변환해야함
 
-                names = []
-                users = []
-                stars = []
-                contents = []
+                names, users, stars, contents = [], [], [], []
 
-                result = pd.DataFrame(columns=['name', 'user','star','content'])
+                result = pd.DataFrame(columns=['name', 'user', 'star', 'content'])
 
-                for i in range(len(data)):
+                for i in range(len(data)): # nested json 펼치기
                     for j in range(len(data[i]['reviews'])):
                         names.append(data[i]['name'])
                         users.append(data[i]['reviews'][j]['user'])
@@ -41,4 +39,27 @@ class Data_frame:
                 result['user'] = users
                 result['star'] = stars
                 result['content'] = contents
-            return result
+        return result # 리뷰 dataframe
+
+    def get_FMdata(self):
+        """
+        Factorization Machine 모델에 적합한 데이터로 변환하는 함수
+        """
+        info = DataFrame(self.store_name, '정보').get_df()
+        review = DataFrame(self.store_name, '리뷰').get_df()
+        data = review[['name', 'user', 'star']]
+        brands, categories = [], []
+        for name in tqdm(data['name'], desc='brand&category'):
+            brands.append(info.loc[info['name'] == name, 'brand'].iloc[0])
+            categories.append(info.loc[info['name'] == name, 'category'].iloc[0])
+        data['brand'] = brands
+        data['category'] = categories
+
+        dummy_df = pd.DataFrame()
+        for col in tqdm(['user', 'name', 'brand', 'category'], desc='더미 변수 변환 중...'):
+            dummy_df = pd.concat([dummy_df, data[col].str.get_dummies()], axis=1)
+
+        return dummy_df
+        
+    
+
