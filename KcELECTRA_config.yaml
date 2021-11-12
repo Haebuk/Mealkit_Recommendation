@@ -1,0 +1,14 @@
+training:
+  desc: "Training Parameters"
+  value:
+    model_name: KcELECTRA # Model Name
+    random_seed: 42 # Random Seed
+    pretrained_model: beomi/KcELECTRA-base  # Transformers PLM name
+    pretrained_tokenizer:   # Optional Transformers Tokenizer Name. Overrides `pretrained_model`
+    epochs: 10  # Max Epochs
+    patience: 2 # Early Stopping Patience
+    train_data_path: "nsmc/ratings_train.txt"  # Train Dataset file 
+    val_data_path: "nsmc/ratings_test.txt"  # Validation Dataset file 
+    test_mode: False  # Test Mode enables `fast_dev_run`
+    fp16: True  # Enable train on FP16(if GPU)
+    tpu_cores: 0  # Enable TPU with 1 core or 8 cores

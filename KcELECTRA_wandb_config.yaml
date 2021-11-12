@@ -1,0 +1,8 @@
+ training:
+  desc: "Training Parameters"
+  value:
+    batch_size: 32
+    lr: 5e-6  # Starting Learning Rate
+    max_length: 150  # Max Length input size
+    optimizer: AdamW  # AdamW vs AdamP
+    lr_scheduler: exp  # ExponentialLR vs CosineAnnealingWarmRestarts
