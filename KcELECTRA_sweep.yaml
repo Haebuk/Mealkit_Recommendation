@@ -7,27 +7,27 @@ metric:
   goal: minimize
   name: val_loss
 parameters:
-  training.lr:
+  lr:
     max: 5e-4
     min: 5e-8
     distribution: uniform
-  training.optimizer:
+  optimizer:
     distribution: categorical
     values:
       - AdamW
       - AdamP
-  training.lr_scheduler:
+  lr_scheduler:
     distribution: categorical
     values:
       - exp
       - cos
-  training.batch_size:
+  batch_size:
     distribution: int_uniform
-    max: 512
-    min: 32
-  training.max_length:
+    max: 64
+    min: 16
+  max_length:
     distribution: int_uniform
-    max: 400
+    max: 200
     min: 50
 early_terminate:
   type: hyperband
