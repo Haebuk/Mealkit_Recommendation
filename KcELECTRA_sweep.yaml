@@ -1,0 +1,34 @@
+program: KcELECTRA-.py
+method: bayes
+project: 'Mealkit-Recommendation'
+entity: kuggle
+name: KcELECTRA-sweep
+metric:
+  goal: minimize
+  name: val_loss
+parameters:
+  lr:
+    max: 5e-4
+    min: 5e-8
+    distribution: uniform
+  optimizer:
+    distribution: categorical
+    values:
+      - AdamW
+      - AdamP
+  lr_scheduler:
+    distribution: categorical
+    values:
+      - exp
+      - cos
+  batch_size:
+    distribution: int_uniform
+    max: 64
+    min: 16
+  max_length:
+    distribution: int_uniform
+    max: 200
+    min: 50
+early_terminate:
+  type: hyperband
+  min_iter: 3
