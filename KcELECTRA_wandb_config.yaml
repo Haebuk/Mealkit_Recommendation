@@ -1,0 +1,14 @@
+batch_size:
+  value: 64
+lr:
+  desc: Starting Learning Rate
+  value: 5e-6
+max_length:
+  desc: Max Length input size
+  value: 150
+optimizer:
+  desc: AdamW vs AdamP
+  value: AdamW
+lr_scheduler:
+  desc: ExponentialLR vs CosineAnnealingWarmRestarts 
+  value: exp
