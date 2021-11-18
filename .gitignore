@@ -1,3 +1,4 @@
 *.pyc
-*.pickle
 .ipynb_checkpoints
+KR-SBERT
+naver*
