@@ -60,7 +60,8 @@ wandb.init(project='Mealkit-Recommendation', entity='kuggle', config=default_con
 
 config = wandb.config
 
-def cnn_model():
+
+def model():
   model = models.Sequential()
   model.add(layers.Dense(config.layer1, input_shape=(768,)))
   model.add(BatchNormalization())
@@ -76,53 +77,12 @@ def cnn_model():
   model.add(BatchNormalization())
   model.add(Activation('relu'))
   model.add(layers.Dropout(config.dropout))
-
-  # model.add(layers.Dense(32))
-  # model.add(BatchNormalization())
-  # model.add(Activation('relu'))
-  # model.add(layers.Dropout(0.5))
-
   model.add(layers.Dense(1, activation='sigmoid'))
 
   return model
 
-  # # input layer
-  # inputs = Input(shape=(train_vectors_X.shape[1],1))
+model2 = model()
 
-  # # first feature extractor
-  # conv1 = Conv1D(config.conv, kernel_size=config.kernel_size)(inputs)
-  # batchnorm1 = BatchNormalization()(conv1)
-  # relu1 = Activation('relu')(batchnorm1)
-  # pool1 = GlobalMaxPooling1D()(relu1)
-
-  # # second feature extractor
-  # conv2 = Conv1D(config.conv, kernel_size=config.kernel_size)(inputs)
-  # batchnorm2 = BatchNormalization()(conv2)
-  # relu2 = Activation('relu')(batchnorm2)
-  # pool2 = GlobalMaxPooling1D()(relu2)
-
-  # # third feature extractor
-  # conv3 = Conv1D(config.conv, kernel_size=config.kernel_size)(inputs)
-  # batchnorm3 = BatchNormalization()(conv3)
-  # relu3 = Activation('relu')(batchnorm3)
-  # pool3 = GlobalMaxPooling1D()(relu3)
-
-  # # merge feature extractors
-  # merge = concatenate([pool1, pool2, pool3])
-
-  # # interpretation layer
-  # dropout1 = Dropout(config.dropout_rate)(merge)
-  # dense1 = Dense(config.hidden1)(dropout1)
-  # batchnorm_1 = BatchNormalization()(dense1)
-  # relu_1 = Activation('relu')(batchnorm_1)
-  # dropout2 = Dropout(config.dropout_rate)(batchnorm_1)
-  # dense2 = Dense(config.hidden2)(dropout2)
-  # batchnorm_2 = BatchNormalization()(dense2)
-  # output = Dense(1, activation='sigmoid')(batchnorm_2)
-
-  # return Model(inputs=inputs, outputs=output)
-
-model2 = cnn_model()
 model2.compile(optimizer=optimizers.Adam(learning_rate=config.learning_rate),
              loss=losses.binary_crossentropy,
              metrics=[metrics.binary_accuracy])
