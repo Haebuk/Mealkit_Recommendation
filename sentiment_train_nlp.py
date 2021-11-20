@@ -77,6 +77,7 @@ def model():
   model.add(BatchNormalization())
   model.add(Activation('relu'))
   model.add(layers.Dropout(config.dropout))
+
   model.add(layers.Dense(1, activation='sigmoid'))
 
   return model
