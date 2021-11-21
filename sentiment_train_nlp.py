@@ -60,7 +60,6 @@ wandb.init(project='Mealkit-Recommendation', entity='kuggle', config=default_con
 
 config = wandb.config
 
-
 def model():
   model = models.Sequential()
   model.add(layers.Dense(config.layer1, input_shape=(768,)))
@@ -83,7 +82,6 @@ def model():
   return model
 
 model2 = model()
-
 model2.compile(optimizer=optimizers.Adam(learning_rate=config.learning_rate),
              loss=losses.binary_crossentropy,
              metrics=[metrics.binary_accuracy])

@@ -3,7 +3,7 @@ import config
 from load_data import load_data
 from preprocess import get_modified_data
 from DeepFM import DeepFM
-
+from utils.data_frame import DataFrame
 import numpy as np
 import pandas as pd
 from time import perf_counter
@@ -12,13 +12,14 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.metrics import BinaryAccuracy, AUC
 
 def get_data():
-    data = load_data('이마트몰','리뷰').get_df()
-    X = data.loc[:, :'name']
-    Y = data.loc[:, 'star'].map({'0':0,'1':0,'2':0,'3':0,'4':1,'5':1})
+    # data = load_data('이마트몰','리뷰').get_df()
+    data = DataFrame('이마트몰', '정보').get_FMdata()
+    X = data
+    Y = DataFrame('이마트몰','리뷰').get_df().loc[:, 'star'].map({'0':0,'1':0,'2':0,'3':0,'4':1,'5':1})
 
     field_dict, field_index, X_modified = \
         get_modified_data(X, config.ALL_FIELDS, config.CONT_FIELDS, config.CAT_FIELDS, False)
-
+    print(X_modified)
     X_train, X_test, Y_train, Y_test = train_test_split(X_modified, Y, test_size=0.2, stratify=Y)
 
     train_ds = tf.data.Dataset.from_tensor_slices(

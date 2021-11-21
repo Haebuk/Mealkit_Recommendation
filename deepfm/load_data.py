@@ -12,8 +12,10 @@ class load_data:
     def get_df(self):
         data = DataFrame(self.store_name, self.data_type).get_df()
         if self.data_type == '리뷰':
-            return data[['user','name','star']]
+            return data[['user', 'star']]
         else:
             return data
 if __name__ == '__main__':
-    print(load_data('이마트몰','리뷰').get_df())
+    df = load_data('마켓컬리', '정보').get_df()
+    # print(load_data('마켓컬리','정보').get_df().columns)
+    print(df.filter(regex='user'))
