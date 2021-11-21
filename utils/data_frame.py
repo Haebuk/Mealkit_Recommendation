@@ -70,4 +70,4 @@ if __name__ == '__main__':
     df = DataFrame('마켓컬리', '리뷰').get_FMdata()
     print(df.head())
     print(df.filter(regex='user'))
-
+    
