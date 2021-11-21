@@ -17,10 +17,10 @@ class DataFrame:
         """
         정보나 리뷰 json 파일을 불러와 pandas dataframe으로 바꾸는 함수
         """
-        if os.getcwd().split('/')[-1] == 'Mealkit_Recommendation':
-            path = './data/' + self.store_name + self.data_type + '.json' # json 파일 경로
+        if 'Mealkit_Recommendation' in os.path.dirname(os.getcwd()):
+            path = '../data/' + self.store_name + self.data_type + '.json' # json 파일 경로
         else:
-            path = '../data/' + self.store_name + self.data_type + '.json'
+            path = './data/' + self.store_name + self.data_type + '.json'
         if self.data_type == '정보':
             with open(path, encoding='utf-8') as f:
                 result = pd.read_json(f) # 정보 json은 pandas 에서 바로 로드 가능
@@ -61,9 +61,13 @@ class DataFrame:
 
         dummy_df = pd.DataFrame()
         for col in tqdm(['user', 'name', 'brand', 'category'], desc='더미 변수 변환 중...'):
-            dummy_df = pd.concat([dummy_df, data[col].str.get_dummies()], axis=1)
+            dummy_col = pd.get_dummies(data[col], prefix=col)
+            dummy_df = pd.concat([dummy_df, dummy_col], axis=1)
 
         return dummy_df
         
-    
+if __name__ == '__main__':
+    df = DataFrame('마켓컬리', '리뷰').get_FMdata()
+    print(df.head())
+    print(df.filter(regex='user'))
 
