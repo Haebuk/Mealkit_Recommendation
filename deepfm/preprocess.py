@@ -1,4 +1,6 @@
 # import config
+import sys
+sys.path.append('../')
 from itertools import repeat
 import pandas as pd
 from utils.data_frame import DataFrame

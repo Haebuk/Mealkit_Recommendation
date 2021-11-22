@@ -1,5 +1,8 @@
+import sys
+sys.path.append('../')
 import tensorflow as tf
-from layers import FM_layer
+from deepfm.layers import FM_layer
+from utils.pickles import read_pickle_files
 
 tf.keras.backend.set_floatx('float32')
 
@@ -17,13 +20,13 @@ class DeepFM(tf.keras.Model):
 
         # DNN
         self.layers1 = tf.keras.layers.Dense(units=1024, activation='relu')
-        self.dropout1 = tf.keras.layers.Dropout(rate=1)
+        self.dropout1 = tf.keras.layers.Dropout(rate=0.5)
 
         self.layers2 = tf.keras.layers.Dense(units=256, activation='relu')
-        self.dropout2 = tf.keras.layers.Dropout(rate=1)
+        self.dropout2 = tf.keras.layers.Dropout(rate=0.5)
 
         self.layers3 = tf.keras.layers.Dense(units=64, activation='relu')
-        self.dropout3 = tf.keras.layers.Dropout(rate=1)
+        self.dropout3 = tf.keras.layers.Dropout(rate=0.5)
 
         self.layers4 = tf.keras.layers.Dense(units=2, activation='relu')
 
