@@ -4,7 +4,7 @@ sys.path.append('../')
 from itertools import repeat
 import pandas as pd
 from utils.data_frame import DataFrame
-from deepfm import config
+import deepfm.config as config
 from sklearn.preprocessing import MinMaxScaler
 
 # Input : X data, X's columns, CONT_FIELDS, CAT_FIELDS, 연속형을 구간화할 것인지
@@ -18,6 +18,7 @@ def get_modified_data(X, all_fields, continuous_fields, categorical_fields, is_b
         # if col not in all_fields:
         #     print("{} not included: Check your column list".format(col))
         #     raise ValueError
+        
         # 연속형 column
         if col in continuous_fields:
             # 스케일러 준비

@@ -1,16 +1,25 @@
 import sys
-sys.path.append('../')
-from deepfm import DeepFM
-from deepfm.preprocess import get_modified_data
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# import config
+# from DeepFM import DeepFM
+# from preprocess import get_modified_data
+# from utils.data_frame import DataFrame
+# from utils.pickles import read_pickle_files
+
 from deepfm.DeepFM import DeepFM
+from deepfm import config
+from deepfm.preprocess import get_modified_data
 from utils.data_frame import DataFrame
+from utils.pickles import read_pickle_files
 from imblearn.under_sampling import RandomUnderSampler
 from time import perf_counter
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.metrics import BinaryAccuracy, AUC
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, LearningRateScheduler
-from utils.pickles import read_pickle_files
+tf.random.set_seed(42)
 
 def get_data():
     # data = load_data('이마트몰','리뷰').get_df()
@@ -21,9 +30,9 @@ def get_data():
     # X = pd.concat([X, title_emb, desc_emb], axis=1)
     # Y = DataFrame('이마트몰','리뷰').get_df().loc[:, 'star'].map({'0':0,'1':0,'2':0,'3':0,'4':1,'5':1})
     Y = read_pickle_files('kurly_pred_mlp.pickle').apply(lambda x: 1 if x > 0.5 else 0)
-    # rus = RandomUnderSampler(random_state=0)
-    # X, Y = rus.fit_resample(X, Y)
-    # print("Undersample shape:", X.shape, Y.shape)
+    rus = RandomUnderSampler(random_state=0)
+    X, Y = rus.fit_resample(X, Y)
+    print("Undersample shape:", X.shape, Y.shape)
     field_dict, field_index, X_modified = \
         get_modified_data(X, config.ALL_FIELDS, config.CONT_FIELDS, config.CAT_FIELDS, False)
     print(X_modified)
@@ -56,7 +65,7 @@ def train_on_batch(model, optimizer, acc, auc, inputs, targets):
 
     return loss
 def scheduler(epoch, lr):
-   if epoch < 5:
+   if epoch < 20:
      return lr
    else:
      return lr * tf.math.exp(-0.1)
@@ -91,7 +100,7 @@ def train(epochs):
     # y_pred_list = []
     # for x, y in test_ds:
     #     y_pred = model(x)
-    #     for pred in y_pred.numpy():
+    #     for pred in y_pred.numpy()
     #         y_pred_list.append(pred)
     #     test_acc.update_state(y, y_pred)
     #     test_auc.update_state(y, y_pred)
@@ -99,9 +108,10 @@ def train(epochs):
     ### fit method
     early_stopping = EarlyStopping(monitor='val_auc', patience=10, mode='max')
     lr_scheduler = LearningRateScheduler(scheduler)
-    model_checkpoint = ModelCheckpoint(filepath=config.MODEL_PATH+'epoch_{epoch:02d}-auc_{val_auc:.2f}-acc_{val_binary_accuracy:.2f}.tf', monitor='val_auc', save_best_only=True, verbose=1, mode='max')
+    model_checkpoint = ModelCheckpoint(filepath=config.MODEL_PATH+'deepfm/epoch_{epoch:02d}-auc_{val_auc:.4f}'+f'{config.EMBEDDING_SIZE}.tf', monitor='val_auc', save_best_only=True, verbose=1, mode='max')
     model.compile(optimizer=optimizer, loss=tf.keras.losses.binary_crossentropy, metrics=[BinaryAccuracy(), AUC()])
-    model.fit(train_ds, epochs=epochs, validation_data=test_ds, callbacks=[early_stopping, lr_scheduler])
+    model.fit(train_ds, epochs=epochs, validation_data=test_ds, callbacks=[early_stopping, model_checkpoint, lr_scheduler])
+
 
     # compare_df = pd.DataFrame(Y_test)
     # compare_df['y_pred'] = y_pred_list

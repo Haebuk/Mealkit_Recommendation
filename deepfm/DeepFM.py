@@ -1,8 +1,11 @@
 import sys
 sys.path.append('../')
 import tensorflow as tf
-from deepfm.layers import FM_layer
-from utils.pickles import read_pickle_files
+try:
+    from deepfm.layers import FM_layer
+except:
+    from layers import FM_layer
+
 
 tf.keras.backend.set_floatx('float32')
 
@@ -19,16 +22,22 @@ class DeepFM(tf.keras.Model):
         self.fm_layer = FM_layer(num_feature, num_field, embedding_size, field_index)
 
         # DNN
-        self.layers1 = tf.keras.layers.Dense(units=1024, activation='relu')
-        self.dropout1 = tf.keras.layers.Dropout(rate=0.5)
+        self.relu = tf.keras.layers.ReLU()
 
-        self.layers2 = tf.keras.layers.Dense(units=256, activation='relu')
+        self.layers1 = tf.keras.layers.Dense(units=512)
+        self.bn1 = tf.keras.layers.BatchNormalization()
+        self.dropout1 = tf.keras.layers.Dropout(rate=0.)
+
+        self.layers2 = tf.keras.layers.Dense(units=256)
+        self.bn2 = tf.keras.layers.BatchNormalization()
         self.dropout2 = tf.keras.layers.Dropout(rate=0.5)
 
-        self.layers3 = tf.keras.layers.Dense(units=64, activation='relu')
+
+        self.layers3 = tf.keras.layers.Dense(units=64)
+        self.bn3 = tf.keras.layers.BatchNormalization()
         self.dropout3 = tf.keras.layers.Dropout(rate=0.5)
 
-        self.layers4 = tf.keras.layers.Dense(units=2, activation='relu')
+        self.layers4 = tf.keras.layers.Dense(units=2)
 
         # 마지막 DNN+FM
         self.final = tf.keras.layers.Dense(units=1, activation='sigmoid')
@@ -46,10 +55,16 @@ class DeepFM(tf.keras.Model):
 
         # 2) Deep Component
         y_deep = self.layers1(new_inputs)
+        y_deep = self.bn1(y_deep)
+        y_deep = self.relu(y_deep)
         y_deep = self.dropout1(y_deep)
         y_deep = self.layers2(y_deep)
+        y_deep = self.bn2(y_deep)
+        y_deep = self.relu(y_deep)
         y_deep = self.dropout2(y_deep)
         y_deep = self.layers3(y_deep)
+        y_deep = self.bn3(y_deep)
+        y_deep = self.relu(y_deep)
         y_deep = self.dropout3(y_deep)
         y_deep = self.layers4(y_deep)
 

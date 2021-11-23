@@ -11,6 +11,7 @@ class FM_layer(tf.keras.layers.Layer):
         # w: capture 1st order interactions
         # V: capture 2nd order interactions
         # 처음엔 랜덤 값으로 지정
+        # fix tf random seed
         self.w = tf.Variable(tf.random.normal(shape=[num_feature],
                                               mean=0.0, stddev=1.0), name='w')
         self.V = tf.Variable(tf.random.normal(shape=(num_field, embedding_size),
