@@ -13,7 +13,6 @@ from deepfm import config
 from deepfm.preprocess import get_modified_data
 from utils.data_frame import DataFrame
 from utils.pickles import read_pickle_files
-
 from imblearn.under_sampling import RandomUnderSampler
 from time import perf_counter
 import tensorflow as tf
@@ -112,6 +111,7 @@ def train(epochs):
     model_checkpoint = ModelCheckpoint(filepath=config.MODEL_PATH+'deepfm/epoch_{epoch:02d}-auc_{val_auc:.4f}'+f'{config.EMBEDDING_SIZE}.tf', monitor='val_auc', save_best_only=True, verbose=1, mode='max')
     model.compile(optimizer=optimizer, loss=tf.keras.losses.binary_crossentropy, metrics=[BinaryAccuracy(), AUC()])
     model.fit(train_ds, epochs=epochs, validation_data=test_ds, callbacks=[early_stopping, model_checkpoint, lr_scheduler])
+
 
     # compare_df = pd.DataFrame(Y_test)
     # compare_df['y_pred'] = y_pred_list

@@ -6,6 +6,7 @@ try:
 except:
     from layers import FM_layer
 
+
 tf.keras.backend.set_floatx('float32')
 
 class DeepFM(tf.keras.Model):
@@ -30,6 +31,7 @@ class DeepFM(tf.keras.Model):
         self.layers2 = tf.keras.layers.Dense(units=256)
         self.bn2 = tf.keras.layers.BatchNormalization()
         self.dropout2 = tf.keras.layers.Dropout(rate=0.5)
+
 
         self.layers3 = tf.keras.layers.Dense(units=64)
         self.bn3 = tf.keras.layers.BatchNormalization()
