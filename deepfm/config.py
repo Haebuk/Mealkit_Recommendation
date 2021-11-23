@@ -8,8 +8,8 @@ CAT_FIELDS = list(set(ALL_FIELDS).difference(CONT_FIELDS))
 
 # Hyper-parameters for Experiment
 NUM_BIN = 10
-BATCH_SIZE = 32
-EMBEDDING_SIZE = 20
+BATCH_SIZE = 8
+EMBEDDING_SIZE = 4
 EMB_VEC_SIZE = 768 
 LEARNING_RATE = 1e-4
 EPOCHS = 100

@@ -1,6 +1,7 @@
-import enum
 import sys
-sys.path.append('../')
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from deepfm import config
 from time import perf_counter
 import tensorflow as tf
@@ -59,7 +60,7 @@ def train(epochs):
     ### fit method
     early_stopping = EarlyStopping(monitor='val_auc', patience=10, mode='max')
     lr_scheduler = LearningRateScheduler(scheduler)
-    model_checkpoint = ModelCheckpoint(filepath=config.MODEL_PATH+'only_emb_epoch_{epoch:02d}-auc_{val_auc:.2f}-acc_{val_binary_accuracy:.2f}.tf', monitor='val_auc', save_best_only=True, verbose=1, mode='max')
+    model_checkpoint = ModelCheckpoint(filepath=config.MODEL_PATH+'only_emb/epoch_{epoch:02d}-auc_{val_auc:.2f}-acc_{val_binary_accuracy:.2f}.tf', monitor='val_auc', save_best_only=True, verbose=1, mode='max')
     model.compile(optimizer=optimizer, loss=tf.keras.losses.binary_crossentropy, metrics=[BinaryAccuracy(), AUC()])
     model.fit([name_train, desc_train], Y_train, epochs=epochs, validation_data=([name_test, desc_test], Y_test), callbacks=[early_stopping, lr_scheduler, model_checkpoint])
     return model
