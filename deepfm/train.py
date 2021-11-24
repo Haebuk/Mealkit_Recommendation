@@ -13,7 +13,6 @@ from deepfm import config
 from deepfm.preprocess import get_modified_data
 from utils.data_frame import DataFrame
 from utils.pickles import read_pickle_files
-
 from imblearn.under_sampling import RandomUnderSampler
 from time import perf_counter
 import tensorflow as tf
@@ -26,8 +25,7 @@ def get_data():
     data = DataFrame('마켓컬리', '정보').get_FMdata()
     X = data
     # Y = DataFrame('이마트몰','리뷰').get_df().loc[:, 'star'].map({'0':0,'1':0,'2':0,'3':0,'4':1,'5':1})
-    Y = read_pickle_files('kurly_pred_mlp.pickle')
-    Y = Y.loc[Y.index.isin(X.index)].apply(lambda x: 1 if x > 0.5 else 0)
+    Y = read_pickle_files('kurly_pred_mlp.pickle').apply(lambda x: 1 if x > 0.5 else 0)
     rus = RandomUnderSampler(random_state=0)
     X, Y = rus.fit_resample(X, Y)
     print("Undersample shape:", X.shape, Y.shape)
@@ -83,12 +81,47 @@ def train(epochs):
     print(f"Start Training: Batch Size: {config.BATCH_SIZE}, Embedding Size: {config.EMBEDDING_SIZE}, Leargning Rate: {config.LEARNING_RATE}")
     start = perf_counter() # 시간 Count
 
+    # epoch = 10
+    # for i in range(epochs):
+    #     acc = BinaryAccuracy(threshold=0.5) # Accuracy
+    #     auc = AUC()                         # AUC_ROC
+    #     loss_history = []
+
+    #     for x, y in train_ds:
+    #         loss = train_on_batch(model, optimizer, acc, auc, x, y)
+    #         loss_history.append(loss)
+
+    #     print("Epoch {:03d}: 누적 Loss: {:.4f}, Acc: {:.4f}, AUC: {:.4f}".format(
+    #         i, np.mean(loss_history), acc.result().numpy(), auc.result().numpy()))
+
+    # test_acc = BinaryAccuracy(threshold=0.5)
+    # test_auc = AUC()
+    # y_pred_list = []
+    # for x, y in test_ds:
+    #     y_pred = model(x)
+    #     for pred in y_pred.numpy()
+    #         y_pred_list.append(pred)
+    #     test_acc.update_state(y, y_pred)
+    #     test_auc.update_state(y, y_pred)
+
     ### fit method
     early_stopping = EarlyStopping(monitor='val_auc', patience=10, mode='max')
     lr_scheduler = LearningRateScheduler(scheduler)
-    model_checkpoint = ModelCheckpoint(filepath=config.MODEL_PATH+'deepfm/dropduplicates/rus/epoch_{epoch:02d}-auc_{val_auc:.4f}'+f'{config.EMBEDDING_SIZE}.tf', monitor='val_auc', save_best_only=True, verbose=1, mode='max')
+    model_checkpoint = ModelCheckpoint(filepath=config.MODEL_PATH+'deepfm/epoch_{epoch:02d}-auc_{val_auc:.4f}'+f'{config.EMBEDDING_SIZE}.tf', monitor='val_auc', save_best_only=True, verbose=1, mode='max')
     model.compile(optimizer=optimizer, loss=tf.keras.losses.binary_crossentropy, metrics=[BinaryAccuracy(), AUC()])
-    model.fit(train_ds,  epochs=epochs, validation_data=test_ds, callbacks=[early_stopping, model_checkpoint, lr_scheduler])
+    model.fit(train_ds, epochs=epochs, validation_data=test_ds, callbacks=[early_stopping, model_checkpoint, lr_scheduler])
+
+
+    # compare_df = pd.DataFrame(Y_test)
+    # compare_df['y_pred'] = y_pred_list
+
+    # print("테스트 ACC: {:.4f}, AUC: {:.4f}".format(test_acc.result().numpy(), test_auc.result().numpy()))
+    # print("Batch Size: {}, Embedding Size: {}".format(config.BATCH_SIZE, config.EMBEDDING_SIZE))
+    # print("걸린 시간: {:.3f}".format(perf_counter() - start))
+    # model.save_weights('weights/weights-epoch({})-batch({})-embedding({}).h5'.format(
+    #     epochs, config.BATCH_SIZE, config.EMBEDDING_SIZE))
+    # return y_pred_list, compare_df
+
 
 if __name__ == '__main__':
     # result, compare_df = train(epochs=config.EPOCHS)
