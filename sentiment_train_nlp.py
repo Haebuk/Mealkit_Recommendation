@@ -61,7 +61,7 @@ wandb.init(project='Mealkit-Recommendation', entity='kuggle', config=default_con
 config = wandb.config
 
 def cnn_model():
-  model = models.Sequential()
+      model = models.Sequential()
   model.add(layers.Dense(config.layer1, input_shape=(768,)))
   model.add(BatchNormalization())
   model.add(Activation('relu'))
