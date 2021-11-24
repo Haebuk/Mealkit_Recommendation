@@ -22,12 +22,8 @@ from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, LearningR
 tf.random.set_seed(42)
 
 def get_data():
-    # data = load_data('이마트몰','리뷰').get_df()
     data = DataFrame('마켓컬리', '정보').get_FMdata()
     X = data
-    # title_emb = read_pickle_files('data/kurly_name_emb_df_expanded.pkl')
-    # desc_emb = read_pickle_files('data/kurly_desc_emb_df_expanded.pkl')
-    # X = pd.concat([X, title_emb, desc_emb], axis=1)
     # Y = DataFrame('이마트몰','리뷰').get_df().loc[:, 'star'].map({'0':0,'1':0,'2':0,'3':0,'4':1,'5':1})
     Y = read_pickle_files('kurly_pred_mlp.pickle').apply(lambda x: 1 if x > 0.5 else 0)
     rus = RandomUnderSampler(random_state=0)
@@ -35,8 +31,10 @@ def get_data():
     print("Undersample shape:", X.shape, Y.shape)
     field_dict, field_index, X_modified = \
         get_modified_data(X, config.ALL_FIELDS, config.CONT_FIELDS, config.CAT_FIELDS, False)
-    print(X_modified)
-    X_train, X_test, Y_train, Y_test = train_test_split(X_modified, Y, test_size=0.2, stratify=Y)
+    print("X_modified:", X_modified)
+    X_train, X_test, Y_train, Y_test = train_test_split(X_modified, Y, test_size=0.2, stratify=Y, random_state=42)
+
+    print(f'DeepFM: y_train:{Y_train[:3]}, y_test:{Y_test[:3]}')
 
     train_ds = tf.data.Dataset.from_tensor_slices(
         (tf.cast(X_train.values, tf.float32), tf.cast(Y_train, tf.float32))) \
@@ -47,6 +45,7 @@ def get_data():
         .shuffle(3000).batch(config.BATCH_SIZE)
 
     return train_ds, test_ds, field_dict, field_index, Y_test
+    # return X_train, X_test, Y_train, Y_test, field_dict, field_index
 
 def train_on_batch(model, optimizer, acc, auc, inputs, targets):
     with tf.GradientTape() as tape:
