@@ -11,13 +11,13 @@ selenium을 이용해서 상품정보 데이터와 리뷰 데이터 따로 json 
 
 📄 **데이터 파일**
 ```
-— 마켓컬리정보.json
+— [마켓컬리정보.json](https://github.com/Haebuk/Mealkit_Recommendation/blob/main/data/%EB%A7%88%EC%BC%93%EC%BB%AC%EB%A6%AC%EC%A0%95%EB%B3%B4.json)
 
-— 마켓컬리리뷰.json
+— [마켓컬리리뷰.json](https://github.com/Haebuk/Mealkit_Recommendation/blob/main/data/%EB%A7%88%EC%BC%93%EC%BB%AC%EB%A6%AC%EB%A6%AC%EB%B7%B0.json)
 
-— 이마트몰정보.json
+— [이마트몰정보.json](https://github.com/Haebuk/Mealkit_Recommendation/blob/main/data/%EC%9D%B4%EB%A7%88%ED%8A%B8%EB%AA%B0%EC%A0%95%EB%B3%B4.json)
 
-— 이마트몰리뷰.json
+— [이마트몰리뷰.json](https://github.com/Haebuk/Mealkit_Recommendation/blob/main/data/%EC%9D%B4%EB%A7%88%ED%8A%B8%EB%AA%B0%EB%A6%AC%EB%B7%B0.json)
 ```
 
 📋 **데이터 세부 내용**
@@ -47,15 +47,23 @@ selenium을 이용해서 상품정보 데이터와 리뷰 데이터 따로 json 
 
 ### 3. 마켓컬리 리뷰 데이터 감성분석 모델
 
-별점이 없는 마켓컬리 리뷰 데이터의 긍정/부정을 판단하기 위해 감성분석 모델을 적용하였습니다. 리뷰 데이터에 구어체가 많기 때문에 네이버 뉴스에서 댓글과 대댓글을 수집하여 구어체 학습에 효과적인 **KcELECTRA 모델**을 사용하였고,  하이퍼 파라미터 튜닝을 통해 Accuracy를 91.71에서 **92.03**까지 높였습니다.
+리뷰의 별점을 추천 모델의 y값으로 사용하려 했으나, 수집한 마켓컬리 데이터에는 별점이 없었습니다.
+
+따라서 리뷰의 긍정/부정을 y로 사용하기 위해 감성분석 모델을 적용하였습니다. 
+
+리뷰 데이터에 구어체가 많기 때문에 네이버 뉴스에서 댓글과 대댓글을 수집하여 구어체 학습에 효과적인 **KcELECTRA 모델**을 사용하였고,  하이퍼 파라미터 튜닝을 통해 Accuracy를 91.71에서 **92.03**까지 높였습니다.
 
  Accuracy: 0.9203, Loss: 0.2172
 
-[https://github.com/Beomi/KcELECTRA](https://github.com/Beomi/KcELECTRA)
+[사용한 Pre-trained KcELECTRA 주소](https://github.com/Beomi/KcELECTRA)
 
 ### 4. 추천 모델 - DeepFM + Extracted Contents Based Filtering
 
-먼저 Title(상품명)과 Description(상품설명)은 768차원으로 임베딩한 데이터에 Convolution Block을 Feature Extraction을 진행했습니다. User(사용자)와 Brand, Category는 Sparse Data로 변환해 임베딩 후 deepFM을 수행했습니다. 그리고 각각의 결과를 concat해서 sigmoid에 적용시켜 결과를 얻었습니다.
+먼저 Title(상품명)과 Description(상품설명)은 768차원으로 임베딩한 데이터에 Convolution Block을 적용하여 Feature Extraction을 진행했습니다. 
+
+User(사용자)와 Brand, Category는 Sparse Data로 변환해 임베딩 후 deepFM을 수행했습니다.
+
+그리고 각각의 결과를 concat해서 sigmoid에 적용시켜 결과를 얻었습니다.
 
 deepFM에 대한 자세한 내용은 해당 [논문](https://paperswithcode.com/paper/deepfm-an-end-to-end-wide-deep-learning)에서 확인하실 수 있습니다.
 
@@ -64,7 +72,8 @@ deepFM에 대한 자세한 내용은 해당 [논문](https://paperswithcode.com/
 ![image](https://user-images.githubusercontent.com/68543150/143440088-91087b60-9f13-4c54-92ba-5f3080170e6b.png)
 
 
-- Convolution Block : CNN으로, 768차원으로 Embedding된 Title과 Description 데이터에 Conv1D를 적용시키고, Batch Normalization과 ReLU를 적용시켰습니다. 그리고 Pooling layer는 GlobalMaxPooling1D를 적용했습니다.
+- Convolution Block : CNN으로 768차원으로 Embedding된 Title과 Description 데이터에 필터사이즈가 768인 Convolution 필터를 적용시켜 피쳐 추출을 진행했습니다.
+
 - DNN : deepFM의 deep component로, layer는 256 → 64 → 2로 진행했습니다. 그리고 layer마다 Batch Normalization을 적용시켰고, 활성화 함수로는 ReLU를 이용했으며, Dropout도 적용시켰습니다.
 
  위 모델을 Epoch = 100으로, Optimizer는 Adam을 이용해 학습시켰습니다.  (Early Stopping은 val_auc를 기준으로 patience 5)
