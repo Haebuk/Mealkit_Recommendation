@@ -79,7 +79,10 @@ deepFM에 대한 자세한 내용은 해당 [논문](https://paperswithcode.com/
  위 모델을 Epoch = 100으로, Optimizer는 Adam을 이용해 학습시켰습니다.  (Early Stopping은 val_auc를 기준으로 patience 5)
 
 
-### 5. 실험 과정 및 결과
+### 5. 실험 결과
+- train test 8:2 분할
+    - Validation Accuracy: 0.9217
+    - Validation AUC: 0.8748
 
 ### 6. 추천 결과
 
