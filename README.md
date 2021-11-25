@@ -10,7 +10,7 @@
 selenium을 이용해서 상품정보 데이터와 리뷰 데이터 따로 json 파일로 저장했습니다.
 
 📄 **데이터 파일**
-```
+
 — [마켓컬리정보.json](https://github.com/Haebuk/Mealkit_Recommendation/blob/main/data/%EB%A7%88%EC%BC%93%EC%BB%AC%EB%A6%AC%EC%A0%95%EB%B3%B4.json)
 
 — [마켓컬리리뷰.json](https://github.com/Haebuk/Mealkit_Recommendation/blob/main/data/%EB%A7%88%EC%BC%93%EC%BB%AC%EB%A6%AC%EB%A6%AC%EB%B7%B0.json)
@@ -18,7 +18,7 @@ selenium을 이용해서 상품정보 데이터와 리뷰 데이터 따로 json 
 — [이마트몰정보.json](https://github.com/Haebuk/Mealkit_Recommendation/blob/main/data/%EC%9D%B4%EB%A7%88%ED%8A%B8%EB%AA%B0%EC%A0%95%EB%B3%B4.json)
 
 — [이마트몰리뷰.json](https://github.com/Haebuk/Mealkit_Recommendation/blob/main/data/%EC%9D%B4%EB%A7%88%ED%8A%B8%EB%AA%B0%EB%A6%AC%EB%B7%B0.json)
-```
+
 
 📋 **데이터 세부 내용**
 
